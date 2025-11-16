@@ -1,0 +1,356 @@
+---
+title: 'Knowledge base'
+description: 'Manage your knowledge base'
+icon: 'book'
+---
+
+### What is a Knowledge Base?
+
+A Knowledge Base (KB) is a collection of documents, data sources, and information that AI uses to provide accurate, context-aware responses. Think of it as the "brain" that powers your AI assistants.
+
+---
+
+### Viewing Knowledge Bases
+
+### Screen: Knowledge Base List
+
+**Purpose**: View, search, and manage all your knowledge bases in one place.
+
+#### Screen Elements
+
+**Header:**
+- **Title**: "Knowledge Base"
+- **Search Bar**: Filter knowledge bases by name
+- **Time Filter**: "All time" dropdown (filter by creation date)
+- **Create Button**: "Create New Knowledge Base" (top-right)
+
+**Knowledge Base Cards:**
+
+Each KB is displayed as a card showing:
+
+1. **KB Name** (e.g., "Support Knowledge Base", "Company Document")
+2. **Description** (e.g., "Support Documents", "Documentation Update")
+3. **Creation Date** (e.g., "Created Nov 7, 2025")
+4. **Document Count** (e.g., "4 documents", "1 documents")
+5. **Status Badge**:
+   - **Ready** (green) — KB is trained and ready to use
+   - **Training** (yellow) — Currently processing
+   - **Error** (red) — Processing failed
+6. **Action Buttons**:
+   - **Refresh** (circular arrow) — Re-sync data sources
+   - **Edit** (pencil icon) — Modify KB settings
+   - **Delete** (trash icon) — Remove KB permanently
+
+**Pagination:**
+- Page numbers at bottom (e.g., "1" if you have few KBs)
+
+#### How to Use This Screen
+
+**To View a Knowledge Base:**
+1. Click on the KB card name
+2. You'll be taken to the detailed view (see Section 6.3)
+
+**To Search Knowledge Bases:**
+1. Click the search bar
+2. Type keywords from the KB name or description
+3. Results filter in real-time
+
+**To Filter by Date:**
+1. Click the "All time" dropdown
+2. Select a time range (Last 7 days, Last 30 days, etc.)
+3. Only KBs created in that timeframe will show
+
+**To Create a New Knowledge Base:**
+1. Click **"Create New Knowledge Base"** button
+2. Follow the creation wizard (see Section 6.2)
+
+**To Refresh a Knowledge Base:**
+1. Click the refresh icon on the KB card
+2. System will re-index and update the knowledge base
+3. Status changes to "Training" during the process
+
+**To Edit a Knowledge Base:**
+1. Click the edit icon (pencil)
+2. Modify settings in the edit view (see Section 6.3)
+
+**To Delete a Knowledge Base:**
+1. Click the delete icon (trash)
+2. Confirm deletion in the dialog
+3. **Warning**: This action is irreversible
+
+---
+
+### Creating a Knowledge Base
+
+### Screen: Create Knowledge Base
+
+**Purpose**: Set up a new knowledge base by uploading documents, connecting data sources, or integrating cloud storage.
+
+#### Prerequisites
+
+Before creating a KB, ensure you have:
+- Necessary permissions (Admin or Editor role)
+- Documents or data sources ready
+- Cloud credentials (if using cloud storage)
+- Available KB quota on your plan
+
+#### Screen Layout
+
+**Left Panel: Form**
+- Basic information fields
+- Data source configuration
+- Advanced settings
+
+**Right Panel: Quick Tips & Best Practices**
+- Supported file formats
+- Storage services
+- Productivity tools integrations
+- Best practices
+
+#### Supported Data Sources
+
+Xenora can ingest knowledge from multiple sources:
+
+##### **1. File Uploads**
+
+**Supported Formats:**
+- **Documents**: PDF, DOC, DOCX, TXT
+- **Spreadsheets**: XLS, XLSX
+
+**Process:**
+1. Click **"Upload Files"** button or drag-and-drop
+2. Select one or multiple files
+3. Wait for upload to complete
+4. Files will be automatically processed and indexed
+
+**File Size Limits:**
+- Free Plan: Up to 10 MB per file
+- Professional Plan: Up to 50 MB per file
+- Enterprise Plan: Up to 100 MB per file
+
+##### **2. Website URLs**
+
+**Single Page:**
+1. Enter the full URL (e.g., `https://example.com/docs/page`)
+2. System will crawl and extract content
+3. Optionally set crawl depth (how many linked pages to follow)
+
+**Sitemap XML:**
+1. Enter sitemap URL (e.g., `https://example.com/sitemap.xml`)
+2. System will automatically discover all pages
+3. Apply URL filters to include/exclude patterns
+
+**Configuration Options:**
+- **Custom Headers**: For authenticated content
+- **URL Filters**: Include/exclude specific patterns
+- **Max Pages**: Limit total pages crawled (plan-dependent)
+
+##### **3. Cloud Storage**
+
+**AWS S3:**
+1. Select **"AWS S3"** as data source
+2. Provide:
+   - **Access Key ID**
+   - **Secret Access Key**
+   - **Bucket Name**
+   - **Region** (e.g., us-east-1)
+   - **Folder Path** (optional)
+3. Click **"Connect and Import"**
+
+**Google Cloud Storage:**
+1. Select **"Google Cloud Storage"**
+2. Upload service account JSON key
+3. Enter:
+   - **Bucket Name**
+   - **Folder Path** (optional)
+4. Click **"Connect"**
+
+**Azure Blob Storage:**
+1. Select **"Azure Blob Storage"**
+2. Provide:
+   - **Storage Account Name**
+   - **Container Name**
+   - **SAS Token** or **Connection String**
+3. Click **"Connect"**
+
+##### **4. Productivity Tool Integrations**
+
+**Confluence:**
+1. Select **"Confluence"**
+2. Enter:
+   - **Space URL** (e.g., `https://yourcompany.atlassian.net/wiki/spaces/TEAM`)
+   - **API Token**
+   - **Space Key**
+3. Import pages and documentation
+
+**JIRA:**
+1. Select **"JIRA"**
+2. Configure:
+   - **Instance URL**
+   - **API Token**
+   - **Project Key**
+3. Import tickets, issues, and comments
+
+**Office 365:**
+1. Select **"Office 365"**
+2. Authenticate with Microsoft account
+3. Choose folders/files to sync
+
+**Google Drive:**
+1. Select **"Google Drive"**
+2. Authenticate with Google account
+3. Select folders to import
+
+#### Step-by-Step: Creating Your First Knowledge Base
+
+<Steps>
+<Step title="Navigate to Create Page">
+
+ From dashboard, click **"Knowledge Base"**
+ Click **"Create New Knowledge Base"** button
+</Step>
+
+<Step title="Enter Basic Information">
+
+**Name**: Give your KB a descriptive name (e.g., "Customer Support Documentation")
+**Description**: Briefly describe the content (e.g., "Help articles and FAQs for customer support team")
+
+**Choose Data Sources**
+- Select one or more data source types (Files, URLs, Cloud Storage, Integrations)
+- Configure each source as described above
+- You can combine multiple sources in a single KB
+</Step>
+
+<Step title="Configure Advanced Settings (Optional)">
+
+- **LLM Selection**: Override default LLM for this KB
+- **Embedding Model**: Choose semantic search model
+  - **Default**: Standard quality (included in all plans)
+  - **Advanced**: Higher accuracy (Professional/Enterprise plans)
+- **Chunk Size**: Control how documents are split (default: auto)
+- **Retrieval Strategy**:
+  - **Semantic**: Uses embeddings for meaning-based search
+  - **Keyword**: Traditional keyword matching
+  - **Hybrid**: Combines both approaches (Professional/Enterprise)
+</Step>
+
+<Step>
+**Step 5: Review and Create**
+- Review all settings
+- Click **"Create Knowledge Base"**
+- System will begin processing
+</Step>
+
+<Step>
+**Step 6: Wait for Processing**
+- KB status will show **"Training"**
+- Processing time depends on data volume:
+  - Small (< 100 docs): 5-15 minutes
+  - Medium (100-1000 docs): 15-60 minutes
+  - Large (> 1000 docs): 1+ hours
+- You'll receive a notification when ready
+</Step>
+
+</Steps>
+---
+
+
+### Editing & Managing Knowledge Bases
+
+### Screen: Edit Knowledge Base
+
+**Purpose**: Modify existing knowledge base settings, add/remove data sources, and re-train with updated content.
+
+#### Accessing Edit Mode
+
+1. Go to Knowledge Base list
+2. Click the **edit icon** (pencil) on the KB card
+3. You'll enter edit mode
+
+**Permission Required**: Admin or Editor role with `editKnowledgeBase` permission
+
+#### What You Can Edit
+
+##### 1. Basic Information
+- **Name**: Change the KB display name
+- **Description**: Update the description
+
+##### 2. Data Sources
+
+**Add New Sources:**
+- Click **"Add Data Source"**
+- Choose source type (Files, URLs, Cloud, Integrations)
+- Configure as described in Section 6.2
+
+**Remove Existing Sources:**
+- Each source shows a **delete icon**
+- Click to remove the source
+- Data from that source will be removed from KB
+
+**Refresh Sources:**
+- Click **"Refresh"** on individual sources
+- Re-crawls websites or re-syncs cloud storage
+- Updates KB with latest content
+
+##### 3. Advanced Settings
+
+**LLM Configuration:**
+- Change which AI model powers this KB
+- Useful if one model performs better for specific content
+
+**Embedding Model:**
+- Switch between Default and Advanced embeddings
+- Advanced provides better semantic understanding (paid plans)
+
+**Retrieval Configuration:**
+- Adjust chunk size for document processing
+- Change retrieval strategy (Semantic, Keyword, Hybrid)
+
+##### 4. Re-Training
+
+After making changes:
+1. Click **"Save and Re-Train"**
+2. KB enters "Training" status
+3. Wait for processing to complete
+4. KB returns to "Ready" status when done
+
+#### Viewing Knowledge Base Details
+
+### Screen: View Knowledge Base
+
+**Purpose**: Read-only view of KB configuration, content, and statistics.
+
+**What's Displayed:**
+- KB name and description
+- Creation and last updated dates
+- Total document count
+- All connected data sources
+- Processing status
+- Usage statistics (if available)
+
+**Actions Available:**
+- **Chat with This KB**: Start a conversation using only this KB
+- **Edit**: Switch to edit mode (if you have permissions)
+- **Delete**: Remove the KB (Admin only)
+
+#### Deleting a Knowledge Base
+
+**Warning**: Deletion is permanent and cannot be undone.
+
+**Steps:**
+1. Click **Delete** button (trash icon)
+2. Confirm deletion in the dialog
+3. Type "DELETE" to confirm (Admin only)
+4. All data, including documents and configurations, will be removed
+
+**What Gets Deleted:**
+- All documents and indexed content
+- Data source configurations
+- Usage history for this KB
+- Associated chat conversations (optional, based on settings)
+
+**What's NOT Deleted:**
+- Original files (if stored in your cloud storage)
+- External data sources (Confluence, Google Drive, etc. remain intact)
+
+---
