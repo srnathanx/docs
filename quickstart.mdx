@@ -1,80 +1,77 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Getting Started"
+description: "Login and get started"
+---
+### Accessing the Application
+
+1. Open your web browser
+2. Navigate to Xenora https://xenora.ai
+3. Bookmark the page for easy access
+
 ---
 
-## Get started in three steps
+## Authentication & Login
 
-Get your documentation site running locally and make your first customization.
+### Screen: Login Page
 
-### Step 1: Set up your local environment
+**Purpose**: Authenticate users and provide secure access to the platform.
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+#### Available Authentication Methods
 
-### Step 2: Deploy your changes
+Xenora supports OAuth-based authentication:
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+1. **Sign in with Google**
+   - Click the "Sign in with Google" button
+   - Select your Google account
+   - Grant necessary permissions
+   - You'll be redirected to the dashboard
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+2. **Sign in with Microsoft**
+   - Click the "Sign in with Microsoft" button
+   - Enter your Microsoft credentials
+   - Complete multi-factor authentication (if enabled)
+   - You'll be redirected to the dashboard
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+#### First-Time Sign Up
 
-### Step 3: Go live
+If you're a new user:
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+1. Click **"Get Started"** or **"Sign Up"**
+2. Choose your authentication provider (Google or Microsoft)
+3. Complete the OAuth flow
+4. Your account will be automatically created
+5. You may be prompted to set up your organization (see Section 4)
 
-## Next steps
+#### Troubleshooting Login Issues
 
-Now that you have your docs running, explore these key features:
+**Problem**: "Authentication failed" error
+- **Solution**: Clear browser cache and cookies, try again
+- **Solution**: Ensure pop-ups are enabled for the Xenora domain
+- **Solution**: Contact your IT administrator if using SSO
 
-<CardGroup cols={2}>
+**Problem**: Can't see login buttons
+- **Solution**: Disable ad blockers or browser extensions
+- **Solution**: Try a different browser
+___
+## Organization Selection
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
+### Screen: Tenant Selection
 
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
+**Purpose**: If you belong to multiple organizations, select which one you want to access.
 
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
+#### When You See This Screen
 
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
+- You have accounts with multiple organizations
+- You've been invited to join another team
+- You're switching between different workspaces
 
-</CardGroup>
+#### How to Select an Organization
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+1. After logging in, you'll see a list of organizations you have access to
+2. Each organization displays:
+   - Organization name
+   - Your role (Admin, Editor, Read User)
+   - Organization logo (if configured)
+3. Click on the organization you want to access
+4. You'll be redirected to that organization's dashboard
+

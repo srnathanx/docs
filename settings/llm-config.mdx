@@ -1,0 +1,229 @@
+---
+title: "LLM Configuration"
+description: "Configure AI model providers, add API keys, and manage multiple LLM services."
+icon: "chart-network"
+---
+
+#### Why Configure LLMs?
+
+Xenora supports multiple AI providers, giving you:
+- **Flexibility**: Use different models for different tasks
+- **Cost Control**: Use your own API keys and billing
+- **Performance**: Choose the best model for your needs
+- **Redundancy**: Fallback options if one provider is down
+- **Privacy**: Use self-hosted models for sensitive data
+
+#### Accessing LLM Settings
+
+1. Click **"Settings"** in left sidebar
+2. Click **"LLM"** tab
+
+#### System Configuration (Read-Only)
+
+At the top, you'll see system defaults (cannot be modified):
+
+**System Provider: Anthropic**
+- Model: Claude 3.5 Sonnet
+- Status: Active
+- Type: System (managed by Xenora)
+
+These are fallback providers always available.
+
+#### Adding a New LLM Provider
+
+**Step 1: Click "Add New Provider"**
+- Button at top-right of LLM settings page
+- Opens configuration dialog
+
+**Step 2: Choose Provider Type**
+
+Select from:
+
+1. **Anthropic** (Claude)
+2. **OpenAI** (GPT models)
+3. **Google** (Gemini)
+4. **DeepSeek**
+5. **Mistral AI**
+6. **Ollama** (Self-Hosted)
+7. **Hosted** (Custom API-compatible endpoint)
+8. **System** (Use platform defaults)
+
+**Step 3: Enter Configuration Details**
+
+**Configuration Name:**
+- Friendly identifier
+- Example: "My OpenAI GPT-4", "Production Claude", "Dev Ollama"
+
+**Provider Selection:**
+- From dropdown (step 2)
+
+**Model Selection:**
+- Dropdown changes based on provider
+- **Anthropic**: Claude 3.5 Opus, Sonnet, Haiku, etc.
+- **OpenAI**: GPT-4 Turbo, GPT-4, GPT-3.5 Turbo
+- **Google**: Gemini Pro, Gemini Ultra
+- **DeepSeek**: DeepSeek Chat, DeepSeek Coder
+- **Mistral**: Mistral Large, Mistral Medium, Mistral Small
+
+**API Key** (for Managed Providers):
+- Your API key from the provider
+- Where to get:
+  - **Anthropic**: console.anthropic.com → Account → API Keys
+  - **OpenAI**: platform.openai.com → API Keys
+  - **Google**: console.cloud.google.com → APIs → Gemini
+  - **DeepSeek**: platform.deepseek.com → API Keys
+  - **Mistral**: console.mistral.ai → API Keys
+
+**Endpoint URL** (for Self-Hosted/Hosted):
+- API endpoint for self-hosted models
+- Example: `http://localhost:11434/api/chat` (Ollama)
+- Example: `https://api.mycompany.com/v1/chat` (Custom)
+
+**Description** (Optional):
+- Notes about this configuration
+- Example: "Production use only", "For legal documents", "High-volume processing"
+
+**Step 4: Save Configuration**
+- Click **"Save Configuration"**
+- System validates API key (for managed providers)
+- Provider appears in the list
+
+#### Provider Configuration Examples
+
+##### **Example 1: Anthropic Claude**
+
+```
+Configuration Name: Production Claude Opus
+Provider: Anthropic
+Model: Claude 3.5 Opus
+API Key: sk-ant-api03-xxxxx (from Anthropic Console)
+Description: High-quality model for customer-facing chatbots
+```
+
+##### **Example 2: OpenAI GPT-4**
+
+```
+Configuration Name: GPT-4 Turbo
+Provider: OpenAI
+Model: gpt-4-turbo-preview
+API Key: sk-xxxxx (from OpenAI Platform)
+Description: Fast GPT-4 for internal knowledge queries
+```
+
+##### **Example 3: Self-Hosted Ollama**
+
+```
+Configuration Name: Local Llama 3
+Provider: Ollama
+Model: llama3:70b
+Endpoint URL: http://192.168.1.100:11434/api/chat
+Description: Privacy-sensitive internal use
+```
+
+##### **Example 4: Custom Hosted**
+
+```
+Configuration Name: Azure OpenAI
+Provider: Hosted
+Model: gpt-4
+Endpoint URL: https://mycompany.openai.azure.com/openai/deployments/gpt-4/chat/completions
+API Key: <Azure API Key>
+Description: Enterprise Azure OpenAI Service
+```
+
+#### Managing Existing Providers
+
+**Provider List View:**
+
+Each provider shows:
+- **Configuration Name**
+- **Provider Type** (badge: Anthropic, OpenAI, etc.)
+- **Model Name**
+- **Status**:
+  - **Enabled** (green toggle)
+  - **Disabled** (gray toggle)
+- **Default Badge**: "Default" (if set as default)
+- **Created Date**
+- **Last Updated Date**
+- **Actions**:
+  - Enable/Disable toggle
+  - **Set as Default** button
+  - **Edit** button
+  - **Delete** button (trash icon)
+
+#### Provider Actions
+
+##### **Enable/Disable Provider**
+
+**To Toggle:**
+1. Click the toggle switch
+2. Provider is immediately enabled/disabled
+3. Disabled providers:
+   - Don't appear in model selection dropdowns
+   - Can't be used for new chats
+   - Existing chats retain their model setting
+
+##### **Set as Default**
+
+**To Set Default:**
+1. Click **"Set as Default"** button
+2. This provider becomes the default for:
+   - New chats (when no KB is selected)
+   - New knowledge bases (for processing)
+   - External chatbots (unless overridden)
+3. Previous default is unset
+4. "Default" badge appears on this provider
+
+##### **Delete Provider**
+
+**To Delete:**
+1. Click **Delete** button (trash icon)
+2. Confirmation dialog appears:
+   - "Are you sure you want to delete this configuration?"
+   - Shows impact: "X chats are using this model"
+3. Type configuration name to confirm (safety measure)
+4. Click **"Delete Configuration"**
+
+**What Happens:**
+- Provider is removed from list
+- Can no longer be selected for new chats
+- Existing chats retain their messages but can't continue with this model
+- Knowledge bases using this provider revert to default
+
+**Cannot Delete:**
+- System providers (managed by Xenora)
+- Default provider (set a different default first)
+- Last remaining active provider
+
+#### Error Handling
+
+**Invalid API Key:**
+- Red error message: "Invalid API key for OpenAI"
+- Provider is created but disabled
+- Fix: Edit and enter correct API key
+
+**Connectivity Issues:**
+- Yellow warning: "Cannot reach endpoint http://..."
+- Provider is created but may not work
+- Fix: Check endpoint URL, network, firewall
+
+**Duplicate Name:**
+- Error: "Configuration with this name already exists"
+- Choose a different name
+
+**Rate Limiting:**
+- Warning: "API rate limit exceeded"
+- Provider works but may be slow
+- Fix: Upgrade provider plan or reduce usage
+
+#### Best Practices
+
+1. **Name Clearly**: Use descriptive names (e.g., "GPT-4 for Legal Docs")
+2. **Secure API Keys**: Never share or commit keys to version control
+3. **Rotate Keys**: Change API keys every 90 days
+4. **Monitor Usage**: Check provider dashboards for costs
+5. **Set Fallbacks**: Configure multiple providers for redundancy
+6. **Test Before Production**: Enable and test in dev environment first
+7. **Document**: Use description field to note purpose and owners
+
+---

@@ -1,0 +1,504 @@
+---
+title: 'External Chatbots'
+description: 'Build external chat bots for your web sites'
+icon: 'robot'
+---
+
+### What are External Chatbots?
+
+External chatbots are embeddable AI assistants you can deploy to your website, customer portal, or application. They provide customer-facing conversational experiences powered by your knowledge bases.
+
+---
+
+### Creating External Chatbots
+
+### Screen: External Chatbots List
+
+**Purpose**: Manage all your external chatbots in one place.
+
+#### Screen Layout
+
+**Header:**
+- **Title**: "External Chatbots"
+- **Search**: Filter chatbots by name
+- **Create Button**: "Create New ChatBot"
+
+**Chatbot Cards (Grid View):**
+
+Each chatbot displays:
+
+1. **Chatbot Name** (e.g., "Support Bot", "Sales Assistant")
+2. **Description** (e.g., "Customer support chatbot")
+3. **Status Badge**:
+   - **Active** (green) — Bot is live and responding
+   - **Inactive** (gray) — Bot is disabled
+4. **Connected KB**: Shows which knowledge base powers this bot
+5. **Statistics**:
+   - Total Conversations
+   - Total Messages
+   - Avg. Response Time
+   - Last Active timestamp
+6. **Action Buttons**:
+   - **Edit** (pencil) — Modify configuration
+   - **Delete** (trash) — Remove chatbot
+   - **Copy Embed Code** — Get integration code
+
+**Grid Layout:**
+- Responsive: 1-4 columns depending on screen size
+- Pagination at bottom
+- Total count displayed
+
+#### Creating Your First External Chatbot
+
+**Step 1: Click "Create New ChatBot"**
+- From External Chatbots page
+- Click the create button (top-right)
+
+**Step 2: Basic Information**
+
+**Chatbot Name:**
+- Internal identifier (e.g., "Website Support Bot")
+- Not visible to end users
+- Used for your organization purposes
+
+**Description:**
+- Purpose and use case
+- Helps team understand chatbot function
+
+**Knowledge Base Selection:**
+- Choose which KB this chatbot uses
+- Dropdown list of all your KBs
+- Chatbot will only answer based on this KB's content
+
+---
+
+### Customizing Chatbot Appearance
+
+### Screen: External Chatbot Configuration
+
+**Purpose**: Customize your chatbot's branding, messages, and behavior.
+
+#### Branding Settings
+
+**Brand Name:**
+- What users see in the chat header
+- Example: "Acme Support", "Sales Assistant", "Help Bot"
+
+**Brand Color (Primary):**
+- Hex color code (e.g., `#3B82F6`)
+- Used for:
+  - Chat header background
+  - Send button
+  - User message bubbles
+- Color picker available
+
+**Text Color:**
+- Hex color code for text in branded elements
+- Ensure good contrast with brand color
+
+**Logo/Avatar:**
+- Upload custom logo (optional)
+- Appears in chat header and messages
+- Recommended size: 64x64px, PNG with transparency
+
+#### Message Customization
+
+**Welcome Message:**
+- First message users see when opening chat
+- Example: "👋 Welcome! How can I help you today?"
+- Keep concise and friendly
+
+**Input Placeholder:**
+- Placeholder text in the message input field
+- Example: "Type your message here...", "Ask me anything..."
+
+**Answer Label:**
+- Name displayed for AI responses
+- Example: "Support Bot", "AI Assistant", "Acme"
+
+**Suggested Questions (Optional):**
+- Up to 5 pre-written questions
+- Users can click to send
+- Example:
+  - "What are your business hours?"
+  - "How do I reset my password?"
+  - "Tell me about pricing"
+
+#### Behavior Settings
+
+**Auto-Open Delay:**
+- Automatically open chat after X seconds
+- 0 = disabled (user must click)
+- Example: 5 seconds
+
+**Enable Conversation History:**
+- Toggle: Save user conversations
+- Required for analytics
+- Privacy consideration: inform users in privacy policy
+
+**Rate Limiting:**
+- Max messages per user per minute
+- Prevents abuse
+- Example: 10 messages/minute
+
+**Fallback Message:**
+- Shown when AI can't answer
+- Example: "I'm sorry, I don't have information on that. Please contact support@example.com"
+
+#### Advanced Configuration
+
+**Custom CSS:**
+- Override default styles
+- For advanced customization
+- Example:
+  ```css
+  .xeno-chat-widget {
+    border-radius: 20px;
+  }
+  ```
+
+**Widget Position:**
+- Bottom-right (default)
+- Bottom-left
+- Top-right
+- Top-left
+
+**Widget Size:**
+- Small (default)
+- Medium
+- Large
+
+**Theme:**
+- Light (default)
+- Dark
+- Auto (matches user's system preference)
+
+---
+
+### Managing API Tokens
+
+### What are API Tokens?
+
+API tokens authenticate requests from your website to the Xenora chatbot backend. Each token can be restricted to specific domains for security.
+
+### Screen: API Token Management
+
+**Purpose**: Create, manage, and secure tokens for chatbot integrations.
+
+#### Creating an API Token
+
+**Step 1: Navigate to Token Section**
+- In External Chatbot edit view
+- Click **"API Tokens"** tab
+- Click **"Create Token"**
+
+**Step 2: Configure Token**
+
+**Token Name:**
+- Descriptive identifier
+- Example: "Production Website", "Staging Environment", "Mobile App"
+
+**Allowed Domains:**
+- Whitelist domains that can use this token
+- Wildcards supported
+- Examples:
+  - `example.com` — Only main domain
+  - `*.example.com` — All subdomains
+  - `example.com, app.example.com` — Multiple domains (comma-separated)
+
+**Expiration Date:**
+- When token should expire
+- Options:
+  - Never (not recommended for production)
+  - 30 days
+  - 90 days
+  - 1 year
+  - Custom date
+
+**Step 3: Create and Copy**
+- Click **"Create Token"**
+- **IMPORTANT**: Copy the API key immediately
+- You won't be able to see it again
+- Store securely (password manager, env variables)
+
+#### Token Security Best Practices
+
+1. **Use Separate Tokens per Environment**
+   - Production token
+   - Staging token
+   - Development token
+
+2. **Restrict Domains**
+   - Never use wildcard `*` alone
+   - Be specific with domain restrictions
+
+3. **Rotate Regularly**
+   - Change tokens every 90 days
+   - Update expiration dates
+
+4. **Monitor Usage**
+   - Check analytics for unusual activity
+   - Disable suspicious tokens immediately
+
+5. **Never Commit to Version Control**
+   - Don't put tokens in code
+   - Use environment variables
+
+#### Managing Existing Tokens
+
+**View Tokens:**
+- Listed in table format
+- Shows:
+  - Token name
+  - Allowed domains
+  - Created date
+  - Expiration date
+  - Status (Active/Expired)
+  - Last used timestamp
+
+**Actions:**
+
+**Enable/Disable:**
+- Toggle switch
+- Disabled tokens won't authenticate
+- Useful for temporary deactivation
+
+**View/Hide API Key:**
+- Click eye icon to reveal
+- Hidden by default for security
+- Only shows first/last few characters
+
+**Copy to Clipboard:**
+- Quick copy button
+- One-click copy of API key
+
+**Delete:**
+- Click trash icon
+- Confirm deletion
+- **Warning**: Any sites using this token will break
+
+**How to Revoke Token:**
+1. Disable the token immediately (toggle off)
+2. Update your website with a new token
+3. Test the new integration
+4. Delete the old token
+
+---
+
+### Embedding on Your Website
+
+### Embed Code Overview
+
+After creating a chatbot and API token, you'll receive embed code to add to your website.
+
+#### Embed Code Structure
+
+```html
+<!-- Xeno Chat Widget Configuration -->
+<script>
+    window.XenoChatConfig = {
+        'x-bot-id': 'bot_123abc',           // Your chatbot ID
+        'x-tenant-id': 'tenant_456def',      // Your organization ID
+        'x-api-key': 'xeno_789ghi',          // API token
+        'x-position': 'bottom-right',        // Widget position
+        'x-size': 'medium',                  // Widget size
+        'x-theme': 'light',                  // Color theme
+        'x-base-url': 'https://api.xenora.ai/core',  // API endpoint
+    };
+</script>
+
+<!-- Load Xeno Chat Widget -->
+<script src="https://xenora.ai/widget/xeno-chat-widget.min.js"></script>
+```
+
+#### Installation Steps
+
+<Steps>
+<Step title="Copy Embed Code">
+- In External Chatbot settings
+- Select an API token from dropdown
+- Click **"Copy Embed Code"**
+- Code is copied to clipboard
+</Step>
+
+<Step title="Add to Website">
+- Open your website's HTML
+- Paste code just before `</body>` tag
+- Save and deploy
+</Step>
+
+<Step title="Test">
+- Visit your website
+- Look for chat widget (bottom-right)
+- Click to open
+- Send a test message
+- Verify responses work
+</Step>
+</Steps>
+
+#### Integration Methods
+
+##### **1. Direct HTML Integration**
+
+For static websites:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+    <!-- Your website content -->
+
+    <!-- Xenora Chatbot (before </body>) -->
+    <script>
+        window.XenoChatConfig = { /* config */ };
+    </script>
+    <script src="https://api.xenora.ai/core/xeno-chat-widget.min.js"></script>
+</body>
+</html>
+```
+
+##### **2. WordPress Integration**
+
+**Method A: Theme Footer**
+1. Go to Appearance → Theme Editor
+2. Edit `footer.php`
+3. Paste embed code before `<?php wp_footer(); ?>`
+
+**Method B: Plugin (Recommended)**
+1. Install "Insert Headers and Footers" plugin
+2. Go to Settings → Insert Headers and Footers
+3. Paste embed code in "Scripts in Footer"
+4. Save
+
+##### **3. React Integration**
+
+```jsx
+import { useEffect } from 'react';
+
+function App() {
+  useEffect(() => {
+    // Configure Xenora
+    window.XenoChatConfig = {
+      'x-bot-id': process.env.REACT_APP_XENORA_BOT_ID,
+      'x-tenant-id': process.env.REACT_APP_XENORA_TENANT_ID,
+      'x-api-key': process.env.REACT_APP_XENORA_API_KEY,
+      'x-position': 'bottom-right',
+      'x-size': 'medium',
+      'x-theme': 'light',
+      'x-base-url': 'https://api.xenora.ai/core',
+    };
+
+    // Load widget script
+    const script = document.createElement('script');
+    script.src = 'https://api.xenora.ai/core/xeno-chat-widget.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div className="App">
+      {/* Your app content */}
+    </div>
+  );
+}
+```
+
+##### **4. Next.js Integration**
+
+**In `_app.js` or `_app.tsx`:**
+```jsx
+import { useEffect } from 'react';
+import Script from 'next/script';
+
+function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    window.XenoChatConfig = {
+      'x-bot-id': process.env.NEXT_PUBLIC_XENORA_BOT_ID,
+      'x-tenant-id': process.env.NEXT_PUBLIC_XENORA_TENANT_ID,
+      'x-api-key': process.env.NEXT_PUBLIC_XENORA_API_KEY,
+      'x-position': 'bottom-right',
+      'x-size': 'medium',
+      'x-theme': 'auto',
+      'x-base-url': 'https://api.xenora.ai/core',
+    };
+  }, []);
+
+  return (
+    <>
+      <Component {...pageProps} />
+      <Script
+        src="https://api.xenora.ai/core/xeno-chat-widget.min.js"
+        strategy="afterInteractive"
+      />
+    </>
+  );
+}
+
+export default MyApp;
+```
+
+##### **5. Shopify Integration**
+
+1. Go to Online Store → Themes
+2. Click **Actions → Edit code**
+3. Open `theme.liquid`
+4. Paste embed code before `</body>`
+5. Save
+
+#### Configuration Options Reference
+
+| Option | Type | Values | Description |
+|--------|------|--------|-------------|
+| `x-bot-id` | string | Required | Your chatbot ID |
+| `x-tenant-id` | string | Required | Your organization ID |
+| `x-api-key` | string | Required | API token |
+| `x-position` | string | `bottom-right`, `bottom-left`, `top-right`, `top-left` | Widget position |
+| `x-size` | string | `small`, `medium`, `large` | Widget size |
+| `x-theme` | string | `light`, `dark`, `auto` | Color theme |
+| `x-base-url` | string | URL | API endpoint (default provided) |
+
+#### Testing the Integration
+
+**Checklist:**
+- [ ] Widget appears on page load
+- [ ] Widget opens when clicked
+- [ ] Welcome message displays
+- [ ] Can send messages
+- [ ] AI responds correctly
+- [ ] Branding matches configuration
+- [ ] Works on mobile devices
+- [ ] No console errors
+- [ ] Domain restrictions working (test from unauthorized domain)
+
+#### Troubleshooting Embed Issues
+
+**Widget Not Appearing:**
+- Check browser console for errors
+- Verify API token is active
+- Confirm domain is whitelisted
+- Check ad blockers aren't blocking
+
+**CORS Errors:**
+- Ensure domain is in API token's allowed domains
+- Check for typos in domain name
+- Verify protocol (https vs http)
+
+**Widget Appears But Doesn't Respond:**
+- Check API token hasn't expired
+- Verify chatbot status is "Active"
+- Ensure connected KB is "Ready"
+- Check network tab for failed requests
+
+**Styling Issues:**
+- Clear browser cache
+- Check for CSS conflicts
+- Verify `x-theme` setting
+- Inspect with browser DevTools
+
+---

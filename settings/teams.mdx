@@ -1,0 +1,266 @@
+---
+title: "Team Management"
+description: "Invite team members, assign roles, and manage user access."
+icon: "users"
+---
+
+#### Accessing Team Management
+
+1. Click **"Settings"** in left sidebar
+2. Click **"Team"** tab
+
+**Permission Required**: Admin role
+
+#### Team Overview
+
+**Team Summary:**
+- Total team members
+- Active users
+- Pending invitations
+- Available seats (plan-dependent)
+
+**Example:**
+```
+Team Members: 8 / 20
+Active: 7
+Pending Invites: 1
+Available Seats: 12
+```
+
+#### Inviting Team Members
+
+**Step 1: Click "Invite Member"**
+- Button at top-right
+
+**Step 2: Enter Invitation Details**
+
+**Email Address:**
+- Work email of person to invite
+- Must be unique (not already in team)
+
+**Role:**
+Select from:
+- **Admin**: Full access (see Section 14.3 for details)
+- **Editor**: Can create and modify content
+- **Read User**: View-only access
+
+**Personal Message (Optional):**
+- Custom note in invitation email
+- Example: "Welcome to the team! Excited to have you."
+
+**Step 3: Send Invitation**
+- Click **"Send Invite"**
+- Email sent immediately
+- Invitation expires in 7 days
+
+**What the Invitee Receives:**
+
+Email contains:
+- Invitation from your organization
+- Your personal message (if added)
+- Role they're being assigned
+- **"Accept Invitation"** button
+- Link to sign up or log in
+- Expiration date
+
+#### Team Member List
+
+**Table Columns:**
+
+1. **User** (Avatar + Name + Email)
+2. **Role** (Badge: Admin, Editor, Read User)
+3. **Status** (Active, Inactive, Pending)
+4. **Last Active** (Timestamp)
+5. **Joined** (Date added to team)
+6. **Actions** (Enable/Disable, Delete)
+
+**Example Row:**
+```
+[Avatar] John Doe (john@example.com)
+Role: Editor (blue badge)
+Status: Active (green dot)
+Last Active: 2 hours ago
+Joined: Nov 1, 2025
+[Toggle] [Delete Icon]
+```
+
+#### Managing Team Members
+
+##### **Enable/Disable Users**
+
+**To Disable a User:**
+1. Click the toggle switch (turns gray)
+2. User is immediately disabled
+3. They're logged out (if currently active)
+4. Cannot log in until re-enabled
+
+**What Happens When Disabled:**
+- User cannot access the application
+- Their data and configurations remain
+- Counted toward team seat limit (still billed)
+- Can be re-enabled anytime
+
+**When to Disable:**
+- Employee on extended leave
+- Temporary access suspension
+- Security incident investigation
+
+**To Re-Enable:**
+1. Click the toggle switch (turns green)
+2. User can log in again immediately
+
+##### **Delete Team Members**
+
+**To Delete:**
+1. Click delete icon (trash)
+2. Confirmation dialog:
+   - "Remove [Name] from your organization?"
+   - Shows impact (e.g., "12 knowledge bases created by this user")
+   - Option: "Transfer ownership of their content to:" (dropdown)
+3. Confirm deletion
+
+**What Gets Deleted:**
+- User account access
+- Personal settings
+- Session history
+
+**What's Preserved:**
+- Knowledge bases (transferred or kept with creator attribution)
+- Chat history
+- Audit logs
+
+**Cannot Delete:**
+- Yourself (use account transfer instead)
+- Last remaining Admin
+- System administrator accounts
+
+##### **Change User Role**
+
+**To Change Role:**
+1. Click on role badge
+2. Dropdown appears with role options
+3. Select new role
+4. Confirm change
+5. User's permissions update immediately
+
+**Restrictions:**
+- Only Admins can change roles
+- Cannot change your own role to non-Admin if you're the last Admin
+- Cannot change system administrator roles
+
+#### User Roles Explained
+
+### Admin
+
+**Permissions:**
+- **Full Access** to all features
+- Create, edit, delete knowledge bases
+- Create, edit, delete external chatbots
+- View and manage all chats and history
+- Access usage and analytics
+- **Manage team members** (invite, disable, delete, change roles)
+- **Configure organization settings** (LLM, plans, billing)
+- **Delete organization**
+- Manage API tokens and integrations
+- Configure SSO/SAML (Enterprise)
+
+**Use Cases:**
+- CTO, IT Manager
+- Team Lead
+- Project Owner
+
+**Best Practices:**
+- Have at least 2 Admins (redundancy)
+- No more than 3-4 Admins (security)
+- Regular access audits
+
+---
+
+### Editor
+
+**Permissions:**
+- Create, edit, delete **own** knowledge bases
+- Create, edit, delete **own** external chatbots
+- Use chat interface (all KBs)
+- View and export **own** chat history
+- View usage analytics (read-only)
+- Upload documents and configure data sources
+
+**Cannot:**
+- Manage team members
+- Change organization settings
+- Access billing or plans
+- Delete other users' content
+- Configure LLM providers
+
+**Use Cases:**
+- Content Managers
+- Knowledge Base Curators
+- Customer Support Leads
+- Product Managers
+
+**Best Practices:**
+- Default role for most team members
+- Allows productivity without security risks
+- Audit their content creation regularly
+
+---
+
+### Read User
+
+**Permissions:**
+- Use chat interface (read-only KB selection)
+- View knowledge base list (cannot edit)
+- View **own** chat history
+- Export **own** chats
+
+**Cannot:**
+- Create or modify knowledge bases
+- Create external chatbots
+- Upload documents
+- View other users' chats
+- Access any settings
+- View detailed analytics
+- Invite team members
+
+**Use Cases:**
+- Temporary contractors
+- External consultants
+- Interns
+- Limited-access stakeholders
+
+**Best Practices:**
+- Use for users who only need to query knowledge
+- Time-limited access (disable after project ends)
+- Regularly review Read Users (often forgotten)
+
+---
+
+#### Team Collaboration Best Practices
+
+1. **Role Assignment**:
+   - Follow principle of least privilege
+   - Start with Read User, upgrade as needed
+   - Review roles quarterly
+
+2. **Onboarding**:
+   - Send invitation with personal message
+   - Provide training materials
+   - Assign a mentor/buddy
+
+3. **Offboarding**:
+   - Disable immediately when employee leaves
+   - Transfer content ownership
+   - Delete after 30-day retention period
+   - Audit all API tokens created by user
+
+4. **Security**:
+   - Enable 2FA (if available, Enterprise plan)
+   - Regular access reviews
+   - Monitor unusual activity in Usage analytics
+   - Rotate shared API keys if team member leaves
+
+5. **Communication**:
+   - Notify team of new members
+   - Announce role changes
+   - Document ownership of KBs and chatbots
