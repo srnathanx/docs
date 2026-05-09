@@ -22,7 +22,7 @@
             ]
           },
           {
-            "group": "Knowledge base",
+            "group": "Working with Cases/Tickets",
             "pages": [
               "features/kb",
               "features/chat",
