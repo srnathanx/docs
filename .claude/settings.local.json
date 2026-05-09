@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(xargs -0 perl -i -pe 's/[ \\\\t]+$//')",
+      "Bash(python3 -c \"import json; json.load\\(open\\('/Users/srnathan/XenoraWorkspace/docs/docs.json'\\)\\)\")"
+    ]
+  }
+}

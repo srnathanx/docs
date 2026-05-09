@@ -1,31 +1,51 @@
 ---
 title: "General"
-description: "Configure organization-wide settings, view plan details, and manage account."
+description: "Configure organization-wide settings, view plan details, and manage your account."
 icon: "gear"
 ---
-## General Settings
+
+## General settings
+
 The **Settings** page provides an overview of your organization's account, including:
 
-- **Tenant ID** — your unique organization identifier
-- **Current plan** — the subscription plan you're on
-- **Plan limits and usage** — users, storage, and domains used vs. available
+<CardGroup cols={3}>
+  <Card title="Tenant ID" icon="id-badge">
+    Your unique organization identifier.
+  </Card>
+  <Card title="Current plan" icon="receipt">
+    The subscription plan you're on.
+  </Card>
+  <Card title="Plan limits & usage" icon="gauge-high">
+    Users, storage, and domains used vs. available.
+  </Card>
+</CardGroup>
 
 You can also update your organization name or add an address at any time.
-![organisation](/doc-images/10.png)
+
+<Frame caption="Organization settings page">
+  ![Organization settings page](/doc-images/10.png)
+</Frame>
+
+## Delete organization
 
 <Warning>
   Use this option carefully. Account deletion is permanent and cannot be undone once the cool-down period ends.
 </Warning>
 
-## Delete organization
-
 After you cancel your billing, you can request deletion of your organization. The process works as follows:
 
-1. **Immediate archival** — Your account is archived as soon as you confirm deletion. You and your team will lose access to the dashboard, and no new cases or uploads can be created.
+<Steps>
+  <Step title="Immediate archival">
+    Your account is archived as soon as you confirm deletion. You and your team will lose access to the dashboard, and no new cases or uploads can be created.
+  </Step>
+  <Step title="Cool-down period">
+    Your data is retained for **1 to 6 months** to meet statutory and regulatory requirements (such as tax records and audit obligations under Indian law).
+  </Step>
+  <Step title="Permanent deletion">
+    Once the cool-down period ends, all your documents and account data are permanently deleted from Xenora's systems and cannot be recovered.
+  </Step>
+</Steps>
 
-2. **Cool-down period** — Your data is retained for **1 to 6 months** to meet statutory and regulatory requirements (such as tax records and audit obligations under Indian law).
-
-3. **Permanent deletion** — Once the cool-down period ends, all your documents and account data are permanently deleted from Xenora's systems and cannot be recovered.
-
-If you change your mind during the archival period, contact support to restore your account before the cool-down completes.
-
+<Note>
+  If you change your mind during the archival period, contact support to restore your account before the cool-down completes.
+</Note>

@@ -1,67 +1,107 @@
 ---
 title: 'Your workspace'
-description: 'Managing yout cases and tickets'
+description: 'Managing your cases and tickets'
 icon: 'book'
 ---
 
-## Creating a  case 
+## Creating a case
+
 A **case** is a single instance of a flow tied to one client. Once created, the client is notified and can begin uploading the requested documents.
 
-![Home Page](/doc-images/6.png)
+<Frame caption="New case creation form">
+  ![New case creation form](/doc-images/6.png)
+</Frame>
 
-**To create a new case:**
-1. From the **Flows** page, click the flow template you want to use, or click **New Case**.
-2. Fill in the case form:
-   - **Client name** — the person you are collecting documents from
-   - **Client email** and/or **mobile number** — where reminders will be sent
-   - **Entity / Company** — the organisation this case belongs to (optional, see *Entities* below)
-   - **Deadline** — the date by which documents are expected
-   - **Reminder days** — how many days before the deadline to nudge the client
-   - **Custom fields** — any extra information specific to the chosen flow
-   - **Internal notes** — private notes only your team can see
-3. Choose how the first notification should be sent:
-   - **Send WhatsApp + Start Case** (recommended) - It will create case/ticket and send email and WhatsApp notification
-   - **Create Case** Don't send yet — create the case silently and send later or it allows you to upload the document behalf of your user.
-4. Click **Create & Send**.
+<Steps>
+  <Step title="Choose a flow">
+    From the **Flows** page, click the flow template you want to use, or click **New Case**.
+  </Step>
+  <Step title="Fill in the case form">
+    - **Client name** — the person you are collecting documents from
+    - **Client email** and/or **mobile number** — where reminders will be sent
+    - **Entity / Company** — the organization this case belongs to (optional)
+    - **Deadline** — the date by which documents are expected
+    - **Reminder days** — how many days before the deadline to nudge the client
+    - **Custom fields** — any extra information specific to the chosen flow
+    - **Internal notes** — private notes only your team can see
+  </Step>
+  <Step title="Choose how the first notification is sent">
+    - **Send WhatsApp + Start Case** *(recommended)* — creates the case and sends email and WhatsApp notifications.
+    - **Create Case** — don't send yet. Create the case silently and send later, or upload documents on behalf of your user.
+  </Step>
+  <Step title="Click Create & Send">
+    The client immediately receives a message with the document checklist, deadline, and a secure upload link.
+  </Step>
+</Steps>
 
-The client immediately receives a message with the document checklist, deadline, and a secure upload link.
->  If your case is associated with an entity or organization:
->   - Select an existing entity from the dropdown, or
->   - Click Add new entity to create one.
+<Tip>
+  If your case is associated with an entity or organization, select an existing entity from the dropdown, or click **Add new entity** to create one.
+</Tip>
 
-## Notifications and Fileupload 
+## Notifications and file upload
+
 Once you create a case, your customer receives an email and a WhatsApp notification with the list of requested documents. They can submit documents in two ways:
-- Reply on WhatsApp — upload documents directly in the WhatsApp conversation.
-- Use the secure link in the email — open the link to upload documents through the web portal.
 
-WhatsApp Message
-<img src="/doc-images/7.png" alt="Dashboard" width="50%"  height="50%"/>
+<CardGroup cols={2}>
+  <Card title="Reply on WhatsApp" icon="whatsapp">
+    Upload documents directly in the WhatsApp conversation.
+  </Card>
+  <Card title="Use the secure email link" icon="envelope-open">
+    Open the link in the email to upload documents through the web portal.
+  </Card>
+</CardGroup>
 
-Email (Your client view)
-![EMail](/doc-images/8.png)
+<Tabs>
+  <Tab title="WhatsApp message">
+    <Frame>
+      <img src="/doc-images/7.png" alt="WhatsApp message" width="50%" height="50%" />
+    </Frame>
+  </Tab>
+  <Tab title="Email (client view)">
+    <Frame>
+      ![Email client view](/doc-images/8.png)
+    </Frame>
+  </Tab>
+</Tabs>
 
 ## Working with documents
+
 When your customer uploads a document, you'll receive a notification. You can also check pending cases anytime from:
-- My Cases within a flow
-- Pending Cases or All Cases in the main dashboard
 
-Click View on any case to open it and see the documents the customer has submitted.
+- **My Cases** within a flow
+- **Pending Cases** or **All Cases** in the main dashboard
 
-*AI validation*
+Click **View** on any case to open it and see the documents the customer has submitted.
+
+### AI validation
+
 Each uploaded document is automatically validated by Xenora's AI. The system marks each document as one of:
-- **Valid** — the document passed all checks.
-- **Invalid** — the document failed validation (e.g., wrong document type, missing fields). 
-- **Unidentifiable** — the document couldn't be read automatically. This usually happens when the image is blurry, in a regional language, or in an unrecognized format. You can still open the document and review it manually.
 
-Manual review
+<CardGroup cols={3}>
+  <Card title="Valid" icon="circle-check">
+    The document passed all checks.
+  </Card>
+  <Card title="Invalid" icon="circle-xmark">
+    The document failed validation (e.g., wrong document type, missing fields).
+  </Card>
+  <Card title="Unidentifiable" icon="circle-question">
+    The document couldn't be read automatically — usually a blurry image, a regional language, or an unrecognized format. You can still open it and review manually.
+  </Card>
+</CardGroup>
+
+### Manual review
+
 After AI validation, you can:
+
 - **Approve** the document if it meets your requirements.
 - **Reject** the document — the customer will be notified to upload it again.
 - **Skip** the document if it's not required at this stage.
 
-![Working with documents](/doc-images/9.png)
+<Frame caption="Working with documents">
+  ![Working with documents](/doc-images/9.png)
+</Frame>
 
- Status | What it means |
+| Status | What it means |
 |--------|---------------|
 | Awaiting Upload | Client has not yet uploaded |
 | Uploaded | Client has uploaded; needs your review |
@@ -69,22 +109,24 @@ After AI validation, you can:
 | Rejected / Re-upload Requested | You asked the client to upload again |
 | Skipped | Document was marked as not required |
 
-### Additional Actions
-**Case actions**
+## Case actions
+
 Once you've opened a case, several actions are available from the top of the page:
 
-**`Send Notification`**
-If a customer hasn't responded in time, click Send Notification to remind them. The reminder is sent through both WhatsApp and email, the same channels used for the original request.
-
-**`Complete`**
-Once all documents are reviewed and approved, you can mark the case as complete to close it out.
-
-**`Cancel`**
-If a case is no longer needed — for example, the customer has withdrawn the request or the requirement has changed — click Cancel to stop the case. The customer is notified that the case has been cancelled, and no further uploads are accepted.
-
-**`Archive`**
-Completed or cancelled cases can be archived using the Archive button. Archived cases remain in the system for audit and reference, but are moved out of your active view to keep the dashboard focused on ongoing work.
-
-**`Download All`**
-Click Download All at the top of the case to download every document the customer has uploaded as a single bundle.
-
+<AccordionGroup>
+  <Accordion title="Send Notification" icon="bell">
+    If a customer hasn't responded in time, click **Send Notification** to remind them. The reminder is sent through both WhatsApp and email — the same channels used for the original request.
+  </Accordion>
+  <Accordion title="Complete" icon="circle-check">
+    Once all documents are reviewed and approved, you can mark the case as complete to close it out.
+  </Accordion>
+  <Accordion title="Cancel" icon="ban">
+    If a case is no longer needed — for example, the customer has withdrawn the request or the requirement has changed — click **Cancel** to stop the case. The customer is notified that the case has been cancelled, and no further uploads are accepted.
+  </Accordion>
+  <Accordion title="Archive" icon="box-archive">
+    Completed or cancelled cases can be archived using the **Archive** button. Archived cases remain in the system for audit and reference, but are moved out of your active view to keep the dashboard focused on ongoing work.
+  </Accordion>
+  <Accordion title="Download All" icon="download">
+    Click **Download All** at the top of the case to download every document the customer has uploaded as a single bundle.
+  </Accordion>
+</AccordionGroup>
