@@ -25,24 +25,15 @@
             "group": "Working with Cases/Tickets",
             "pages": [
               "features/kb",
-              "features/chat",
-              "features/external-chatbots"
-            ]
-          },
-          {
-            "group": "Other Tools",
-            "pages": [
-              "settings/chat-history",
-              "settings/usage"
+              "features/custom"
             ]
           },
           {
             "group": "Settings",
             "pages": [
               "settings/general-settings",
-              "settings/llm-config",
-              "settings/plans",
-              "settings/teams"
+              "settings/teams",
+              "settings/usage"
             ]
           }
         ]

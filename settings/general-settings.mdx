@@ -4,77 +4,28 @@ description: "Configure organization-wide settings, view plan details, and manag
 icon: "gear"
 ---
 ## General Settings
+The **Settings** page provides an overview of your organization's account, including:
 
-#### Accessing General Settings
+- **Tenant ID** — your unique organization identifier
+- **Current plan** — the subscription plan you're on
+- **Plan limits and usage** — users, storage, and domains used vs. available
 
-1. Click **"Settings"** in left sidebar
-2. You'll land on **"General"** tab by default
+You can also update your organization name or add an address at any time.
+![organisation](/doc-images/10.png)
 
-#### Organization Details
+<Warning>
+  Use this option carefully. Account deletion is permanent and cannot be undone once the cool-down period ends.
+</Warning>
 
-**Organization ID:**
-- Unique identifier for your org
-- Format: `org_abc123def456`
-- **Copy button**: Click to copy to clipboard
+## Delete organization
 
+After you cancel your billing, you can request deletion of your organization. The process works as follows:
 
-**Organization Name:**
-- Your company or team name
-- Editable by Admins only
-- Appears throughout the application
+1. **Immediate archival** — Your account is archived as soon as you confirm deletion. You and your team will lose access to the dashboard, and no new cases or uploads can be created.
 
-**Tenant ID:**
-- Workspace identifier
-- Format: `tenant_xyz789`
-- **Copy button**: Click to copy
-- Used for multi-tenant configurations
+2. **Cool-down period** — Your data is retained for **1 to 6 months** to meet statutory and regulatory requirements (such as tax records and audit obligations under Indian law).
 
-**Admin Email:**
-- Primary contact email
-- Receives important notifications
-- Only Admins can edit
-- **How to Edit**:
-  1. Click the email address
-  2. Email field becomes editable (inline)
-  3. Type new email
-  4. Click **Save** (checkmark icon)
-  5. Click **Cancel** (X icon) to discard
+3. **Permanent deletion** — Once the cool-down period ends, all your documents and account data are permanently deleted from Xenora's systems and cannot be recovered.
 
-#### Plan & Usage Section
+If you change your mind during the archival period, contact support to restore your account before the cool-down completes.
 
-**Current Plan Display:**
-
-Shows your active plan with a colored badge:
-- **Free** (gray badge)
-- **Starter** (blue badge)
-- **Pro** (purple badge)
-- **Enterprise** (gold badge)
-
-**Plan Limits:**
-
-Displayed as a list with current vs maximum:
-
-#### Advanced Section
-
-**Delete Account** (Admin Only):
-
-**Warning**: This action is irreversible and will permanently delete:
-- All knowledge bases and documents
-- All chat history
-- All external chatbots
-- All team members and configurations
-- All usage data
-
-**How to Delete:**
-1. Click **"Delete Account"** button (red)
-2. Confirmation dialog appears
-3. Read the warnings carefully
-4. Type `DELETE` in the confirmation field (case-sensitive)
-5. Click **"Permanently Delete Account"**
-6. Account is deleted immediately
-7. You're logged out and redirected to login page
-
-**Cannot Delete If:**
-- You're not an Admin
-- There are other Admins (must transfer ownership first)
-- Active subscriptions exist (cancel first)
