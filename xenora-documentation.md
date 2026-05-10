@@ -8,14 +8,15 @@
 
 1. [Introduction](#introduction)
 2. [Features](#features)
-3. [Getting Started](#getting-started)
-4. [Dashboard](#dashboard)
-5. [Your workspace](#your-workspace)
-6. [Custom Workflow](#custom-workflow)
-7. [General Settings](#general-settings)
-8. [Teams](#teams)
-9. [Billing](#billing)
-10. [FAQ](#faq)
+3. [Domains Supported](#domains-supported)
+4. [Getting Started](#getting-started)
+5. [Dashboard](#dashboard)
+6. [Your workspace](#your-workspace)
+7. [Custom Workflow](#custom-workflow)
+8. [General Settings](#general-settings)
+9. [Teams](#teams)
+10. [Billing](#billing)
+11. [FAQ](#faq)
 
 ---
 
@@ -23,9 +24,7 @@
 
 *Intelligent document workflow platform for professional services.*
 
-Xenora is an intelligent document workflow platform for professional services. It automates the full document lifecycle — collection through WhatsApp and web, AI-powered validation, approval workflows, and natural-language retrieval over collected documents.
-
-Xenora is an intelligent AI document workflow platform for professional services firms. It automates the full document lifecycle: collection through WhatsApp and web, AI-powered validation, auditor approval flows, and intelligent retrieval over collected documents. Xenora powers a suite of products, starting with DocFlow for client document intake and onboarding.
+Xenora is an intelligent AI document workflow platform for professional services firms. It automates the full document lifecycle — collection through WhatsApp and web, AI-powered validation, approval workflows, and natural-language retrieval over collected documents. Xenora powers a suite of products, starting with DocFlow for client document intake and onboarding.
 
 Get started in three steps — sign up, choose your domain, and create your first flow. From there, Xenora takes over — sending document requests, reminding clients, validating every upload, and preparing the final file for your review.
 Every client, every case, every document — tracked in one place. You always know exactly where things stand.
@@ -63,7 +62,7 @@ Every document event (submission, validation, approval, modification) is logged 
 
 *How Xenora moves a case from collection to close.*
 
-Xenora handles every stage of the document lifecycle — from the first WhatsApp message to a fully verified, archived case file.
+Xenora handles every stage of the document lifecycle — from the first WhatsApp message to a fully verified case file.
 
 ### Collect
 
@@ -87,7 +86,8 @@ Approve the case, download a verified file set — tagged, classified, and AI-re
 
 ---
 
-## Domains Supported 
+## Domains Supported
+
 Xenora supports a growing set of practice domains, each with built-in flows tailored to that domain's standard document collection and workflow needs.
 
 ### Chartered Accountants & Auditors
@@ -111,7 +111,6 @@ Xenora supports a growing set of practice domains, each with built-in flows tail
 - Exit documentation
 
 ### Financial Services
-- Loan Processing / Documentation Verification Services
 - Loan processing (personal, business, home)
 - KYC for financial institutions
 - Insurance claim documentation
@@ -119,7 +118,7 @@ Xenora supports a growing set of practice domains, each with built-in flows tail
 ### Cross-domain
 - Custom flows (build your own)
 
-
+---
 
 ## Getting Started
 
@@ -207,9 +206,45 @@ Select your practice domain to see all flows available for it.
 
 *Managing your cases and tickets.*
 
+A **case** is a single instance of document collection — one customer (or set of parties), one set of required documents, tracked from creation to completion. When you create a case, you're instantiating a flow for a specific customer. Once created, Xenora handles the rest: notifying the customer, collecting their documents, running AI validation, and queueing everything for your review and approval.
+
+### Anatomy of a case
+
+Every case has the following attributes:
+
+- **Case ID** — unique identifier
+- **Flow** — the template this case is based on
+- **Parties** — the customers involved
+- **Documents** — what's been requested and uploaded
+- **Status** — current lifecycle state
+- **Assignee** — team member responsible
+- **Audit trail** — every event with timestamp
+
+### Case lifecycle
+
+A case moves through these states:
+
+`Open → In Progress → Under Review → Completed / Cancelled → Archived`
+
+- **Open** — sent to customer, awaiting first upload
+- **In Progress** — at least one document uploaded, more pending
+- **Under Review** — all documents uploaded, awaiting reviewer action
+- **Completed** — all documents approved
+- **Cancelled** — manually stopped
+- **Archived** — moved out of active view
+
+### Case views
+
+Xenora provides multiple views to help you find and manage cases at different stages of work:
+
+- **My Cases** — All cases currently assigned to you.
+- **Pending Cases** — Cases awaiting action from you or your team (Open and Under Review states).
+- **All Cases** — Every case in your organization, including completed and archived cases.
+- **Filters and search** — Search by customer name, email, or mobile number to quickly locate a specific case.
+
 ### Creating a case
 
-A **case** is a single instance of a flow tied to one client. Once created, the client is notified and can begin uploading the requested documents.
+To create a case, choose a flow and fill in the customer details. Once created, the client is notified and can begin uploading the requested documents.
 
 ![New case creation form](/doc-images/6.png)
 
@@ -244,22 +279,51 @@ Once you create a case, your customer receives an email and a WhatsApp notificat
 
 ![Email client view](/doc-images/8.png)
 
+#### Notification triggers
+
+| Event | WhatsApp | Email |
+|---|---|---|
+| Case created | ✓ | ✓ |
+| Document rejected | ✓ | ✓ |
+| Reminder sent | ✓ | ✓ |
+| Case completed | ✓ | ✓ |
+| Case cancelled | ✓ | ✓ |
+
 ### Working with documents
 
-When your customer uploads a document, you'll receive a notification. You can also check pending cases anytime from:
-
-- **My Cases** within a flow
-- **Pending Cases** or **All Cases** in the main dashboard
+When your customer uploads a document, you'll receive a notification. You can also check pending cases anytime from **My Cases**, **Pending Cases**, or **All Cases** (see [Case views](#case-views)).
 
 Click **View** on any case to open it and see the documents the customer has submitted.
 
+#### Supported formats
+
+- PDF
+- JPG, PNG, HEIC
+- Excel, Word
+- Maximum file size: 50 MB
+
 #### AI validation
 
-Each uploaded document is automatically validated by Xenora's AI. The system marks each document as one of:
+Each uploaded document is automatically validated by Xenora's AI. The system checks:
+
+- Document type matches the request
+- Required fields are present
+- Image quality (blur, rotation, completeness)
+- Expiry dates *(beta — not yet rolled out for public use)*
+- Signatures on legal documents *(beta — not yet rolled out for public use)*
+
+Each document is marked as one of:
 
 - **Valid** — The document passed all checks.
 - **Invalid** — The document failed validation (e.g., wrong document type, missing fields).
 - **Unidentifiable** — The document couldn't be read automatically — usually a blurry image, a regional language, or an unrecognized format. You can still open it and review manually.
+
+**Common reasons validation fails:**
+
+- Document is blurry or low-resolution
+- Document is in a regional language not yet supported
+- Wrong document type uploaded (e.g., Aadhaar instead of PAN)
+- Photo of a screen instead of a scan
 
 #### Manual review
 
@@ -328,6 +392,24 @@ Once created, your custom flow appears under the **Custom Flows** section on the
 ![Custom flow case view](/doc-images/12.png)
 
 > **Note:** There's no separate workflow for cases created from custom flows — your team can use them seamlessly alongside Xenora's built-in flows.
+
+### Sharing documents with customers
+
+Xenora isn't just for collecting documents — you can also send documents to your customers, either for their reference or to request signed copies in return.
+
+Document sharing uses a built-in flow called **"Share documents with Client"**, available in your practice domain.
+
+**To share a document:**
+
+1. From the **Flows** page, select **Share documents with Client** and create a new case.
+2. Enter the customer's details (name, email, mobile).
+3. Open the **Share Document** tab inside the case and upload the files.
+4. Toggle **Response required** if you need the customer to send signed documents back.
+5. Add any instructions in the **Remarks** field.
+
+You can add multiple documents to a single share — they'll all be sent to the customer together.
+
+The customer receives the documents via WhatsApp and email. Once the case is complete, click **Complete** to close it.
 
 ---
 
@@ -401,7 +483,7 @@ The **Billing** page shows your current plan and lets you manage your subscripti
 
 The **Invoices** page lists all invoices generated for your organization, including those for monthly subscriptions, annual plans, and any add-ons. You can download individual invoices as PDFs for your records or accounting needs.
 
-### Support
+### Billing support
 
 If you have any issues with billing or need help with your account, reach out:
 
@@ -448,134 +530,3 @@ Security is a **core design principle** at Xenora. The platform is built with a 
 **What compliance standards does Xenora meet?**
 
 **Primary compliance standard:** **HIPAA**. Xenora is designed to support regulated workloads requiring strong privacy and data protection controls. For organizations with advanced security or compliance requirements, Xenora can be deployed within your own infrastructure (Enterprise plans only).
-
-# Cases
-
-## Overview
-A **case** is a single instance of document collection — one customer (or set of parties), one set of required documents, tracked from creation to completion.
-
-When you create a case, you're instantiating a flow for a specific customer. Once created, Xenora handles the rest: notifying the customer, collecting their documents, running AI validation, and queueing everything for your review and approval.
-
-## Anatomy of a case
-- **Case ID** — unique identifier
-- **Flow** — the template this case is based on
-- **Parties** — the customers involved
-- **Documents** — what's been requested and uploaded
-- **Status** — current lifecycle state
-- **Assignee** — team member responsible
-- **Audit trail** — every event with timestamp
-
-## Case lifecycle
-Open -> Review -> Completed / Cancelled → Archived
-
-Each state explained:
-- **Open** — sent to customer, awaiting first upload
-- **Review** — at least one document uploaded, more pending
-- **Review** — all documents uploaded, awaiting reviewer action
-- **Completed** — all documents approved
-- **Cancelled** — manually stopped
-- **Archived** — moved out of active view
-
-## Case views
-
-Xenora provides multiple views to help you find and manage cases at different stages of work.
-
-- **My Cases** — All cases currently assigned to you.
-- **Pending Cases** — Cases awaiting action from you or your team (Open and Under Review states).
-- **All Cases** — Every case in your organization, including completed and archived cases.
-- **Filters and search** — Search by customer name, email, or mobile number to quickly locate a specific case.
-
-# Documents
-
-## Overview
-A flow can support multiple document uploads for a process. 
-
-## Supported formats
-- PDF
-- JPG, PNG, HEIC
-- Excel, Word 
-- Max file size: 50 MB
-
-
-## AI validation
-### What it checks
-- Document type matches request
-- Required fields are present
-- Image quality (blur, rotation, completeness)
-- Expiry dates (for ID documents) - beta NOT rolledout for public 
-- Signatures (for legal documents) - beta NOT rolledout for public 
-
-### Validation states
-- **Valid** — passed all checks
-- **Invalid** — failed; reason shown to reviewer
-- **Unidentifiable** — couldn't read; manual review needed
-
-### Why might validation fail?
-- Document is blurry or low-resolution
-- Document is in a regional language not yet supported
-- Wrong document type uploaded (e.g., Aadhaar instead of PAN)
-- Photo of a screen instead of a scan
-
-## Manual review
-- Approve, Reject, Skip
-- Adding rejection reasons
-- Re-upload flow
-
-## Document storage and security
-- Encryption at rest and in transit
-- Access controls
-- Retention policy
-
-# Flows
-
-## Overview
-A flow is a reusable template that defines what documents to collect, from whom, in what order.
-
-## Built-in flows
-List every built-in flow with:
-- Name
-- Domain
-- Parties involved
-- Documents collected
-- Typical use case
-
-Example:
-### Client KYC (Chartered Accountants domain)
-- **Parties:** 1 individual or 1 entity
-- **Documents:** PAN, Aadhaar, address proof, bank statement
-- **Use case:** Onboarding a new client to your CA firm
-- **Average completion time:** 2 days
-
-
-# Notifications
-
-## Overview
-How Xenora communicates with your customers across WhatsApp and email.
-
-## Notification triggers
-| Event | WhatsApp | Email |
-|---|---|---|
-| Case created | ✓ | ✓ |
-| Document validated | — | — |
-| Document rejected | ✓ | ✓ |
-| Reminder sent | ✓ | ✓ |
-| Case completed | ✓ | ✓ |
-| Case cancelled | ✓ | ✓ |
-
-## Sharing documents with customers
-
-Xenora isn't just for collecting documents — you can also send documents to your customers, either for their reference or to request signed copies in return.
-
-Document sharing uses a built-in flow called **"Share documents with Client"**, available in your practice domain.
-
-### To share a document
-
-1. From the **Flows** page, select **Share documents with Client** and create a new case.
-2. Enter the customer's details (name, email, mobile).
-3. Open the **Share Document** tab inside the case and upload the files.
-4. Toggle **Response required** if you need the customer to send signed documents back.
-5. Add any instructions in the **Remarks** field.
-
-You can add multiple documents to a single share — they'll all be sent to the customer together.
-
-The customer receives the documents via WhatsApp and email. Once the case is complete, click **Complete** to close it.

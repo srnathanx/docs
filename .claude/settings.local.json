@@ -5,7 +5,11 @@
       "Bash(xargs -0 perl -i -pe 's/[ \\\\t]+$//')",
       "Bash(python3 -c \"import json; json.load\\(open\\('/Users/srnathan/XenoraWorkspace/docs/docs.json'\\)\\)\")",
       "WebFetch(domain:mintlify.com)",
-      "WebFetch(domain:www.mintlify.com)"
+      "WebFetch(domain:www.mintlify.com)",
+      "Bash(awk 'NR<=531' /Users/srnathan/XenoraWorkspace/docs/xenora-documentation.md)",
+      "Bash(mv /tmp/xenora-doc-trimmed.md /Users/srnathan/XenoraWorkspace/docs/xenora-documentation.md)",
+      "Bash(grep -E \"^#{1,3} \" /Users/srnathan/XenoraWorkspace/docs/xenora-documentation.md)",
+      "Bash(awk '$1>1')"
     ]
   }
 }
