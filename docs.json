@@ -26,7 +26,8 @@
             "group": "Working with Cases/Tickets",
             "pages": [
               "features/kb",
-              "features/custom"
+              "features/custom",
+              "features/share"
             ]
           },
           {
