@@ -162,6 +162,7 @@ Choose a plan to continue. Pricing varies by country — see the [Pricing Page](
 > - **Business** — includes access to all domains.
 
 ![Plan selection](/doc-images/3.png)
+> Prices may vary by region. Billing is in INR for India and AED for the UAE; all other regions are billed in USD. See https://xenora.ai/pricing for details.
 
 #### Quick plan comparison
 
