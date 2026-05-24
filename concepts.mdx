@@ -1,0 +1,59 @@
+---
+title: "Concepts & Glossary"
+description: "A quick map of the words Xenora uses — and what each one actually means."
+icon: "book-open"
+---
+
+Xenora has a small vocabulary that, once you know it, makes everything click. Here's the map.
+
+<CardGroup cols={2}>
+  <Card title="Domain" icon="layer-group">
+    A practice area your firm works in — Tax, Audit, HR, Legal, Loans, etc. Turning a domain on activates the flows built for it.
+  </Card>
+  <Card title="Flow" icon="diagram-project">
+    A pre-built template that defines the document checklist for a specific use case (e.g. "Statutory Audit", "Employee Onboarding"). You **run** a flow by creating a case from it.
+  </Card>
+  <Card title="Custom Workflow" icon="wand-magic-sparkles">
+    A flow you build yourself for a requirement that isn't in the built-in set. Once saved, it's a reusable template your whole team can use.
+  </Card>
+  <Card title="Case" icon="folder-open">
+    One instance of a flow, for one customer. A case is the unit of work — created, tracked, reviewed, closed.
+  </Card>
+  <Card title="Party" icon="users">
+    A participant in a case. Most cases have one party (the client). Multi-party cases — common in legal and loans — have several (e.g. borrower + co-applicant + guarantor), each with their own document checklist.
+  </Card>
+  <Card title="Entity / Client" icon="building">
+    The person or organisation a case is attached to. **Clients** are individuals; **Entities** are organisations (Pvt Ltd, LLP, Partnership, etc.). Stored once, reused across cases.
+  </Card>
+  <Card title="Document" icon="file">
+    A single file the client is expected to upload (PAN, GST certificate, bank statement). Each document moves through its own lifecycle: Awaiting Upload → Uploaded → Approved / Rejected.
+  </Card>
+  <Card title="Assignee" icon="user-tag">
+    The team member responsible for moving a case forward. Cases can be reassigned at any time without affecting access — every team member can still view and act on a case.
+  </Card>
+  <Card title="Timeline" icon="clock-rotate-left">
+    The chronological audit trail of everything that happened on a case — created, document uploaded, validated, approved, reassigned, completed.
+  </Card>
+</CardGroup>
+
+## How they fit together
+
+A typical engagement, in plain English:
+
+<Steps>
+  <Step title="You activate a domain">
+    For example, **Tax**. This makes the tax-related flows available on the Flows page.
+  </Step>
+  <Step title="You pick a flow">
+    For example, **ITR Filing**. The flow defines the document checklist — PAN, Form 16, bank statements, etc.
+  </Step>
+  <Step title="You create a case from that flow">
+    You pick the **client** (or **entity**), set the deadline, and send the request. The case is now live.
+  </Step>
+  <Step title="The client uploads documents">
+    Each **document** moves through its own lifecycle. The **timeline** captures every event.
+  </Step>
+  <Step title="You complete the case">
+    All documents approved, case marked complete. The full case file is downloadable as a bundle.
+  </Step>
+</Steps>

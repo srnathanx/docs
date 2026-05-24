@@ -19,6 +19,7 @@
               "index",
               "features",
               "quickstart",
+              "concepts",
               "dashboard"
             ]
           },
@@ -26,6 +27,8 @@
             "group": "Working with Cases/Tickets",
             "pages": [
               "features/kb",
+              "features/pending-review",
+              "features/entities",
               "features/custom",
               "features/share"
             ]

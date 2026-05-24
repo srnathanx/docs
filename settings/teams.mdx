@@ -1,5 +1,5 @@
 ---
-title: "Teams"
+title: "Teams & Roles"
 description: "Invite team members, assign roles, and manage user access."
 icon: "users"
 ---
@@ -8,7 +8,7 @@ icon: "users"
   The **Teams** feature is available on the **Pro** and **Business** plans.
 </Note>
 
-Invite team members to your organization and collaborate on cases together.
+Invite team members to your organisation and collaborate on cases together.
 
 <CardGroup cols={3}>
   <Card title="Create & assign cases" icon="user-plus">
@@ -22,14 +22,75 @@ Invite team members to your organization and collaborate on cases together.
   </Card>
 </CardGroup>
 
-This makes it easy to coordinate document collection across your firm and avoid duplicated effort.
-
 ## Adding team members
 
-To add a team member, go to **Settings → Teams → Add User**.
+To add someone to your organisation, go to **Settings → Team → Invite Team Member**.
 
-## Roles and permissions
+<Steps>
+  <Step title="Enter their email">
+    Use their work email — the same address they'll sign in with.
+  </Step>
+  <Step title="Pick a role">
+    Choose **Admin**, **Editor**, or **Read User** based on what they need to do. See [Roles at a glance](#roles-at-a-glance) below.
+  </Step>
+  <Step title="Send the invite">
+    They'll receive an invitation. Once they accept, they can sign in with Google, Microsoft, or email OTP — same options as you.
+  </Step>
+</Steps>
+
+## Roles at a glance
+
+Pick the lowest role that lets the person do their job. Roles can be changed any time.
+
+<CardGroup cols={3}>
+  <Card title="Admin" icon="shield-halved">
+    **Full access.** Manages the organisation, billing, team, and every case.
+    Every organisation needs at least one Admin.
+  </Card>
+  <Card title="Editor" icon="pen-to-square">
+    **Day-to-day operator.** Creates cases, reviews documents, manages clients and entities, builds custom workflows.
+  </Card>
+  <Card title="Read User" icon="eye">
+    **View-only.** Can browse cases, clients, and dashboards — but can't create, edit, or approve anything.
+  </Card>
+</CardGroup>
+
+## Roles & permissions matrix
+
+| Capability | Read User | Editor | Admin |
+|---|:---:|:---:|:---:|
+| View dashboard | ✓ | ✓ | ✓ |
+| View cases | ✓ | ✓ | ✓ |
+| View clients & entities | ✓ | ✓ | ✓ |
+| View / download documents | ✓ | ✓ | ✓ |
+| Be assigned to a case | ✓ | ✓ | ✓ |
+| Create & edit cases | — | ✓ | ✓ |
+| Approve / reject / request re-upload | — | ✓ | ✓ |
+| Upload documents on behalf of clients | — | ✓ | ✓ |
+| Skip / unskip / remove documents | — | ✓ | ✓ |
+| Rename document labels | — | ✓ | ✓ |
+| Create & edit clients & entities | — | ✓ | ✓ |
+| Build custom workflows | — | ✓ | ✓ |
+| Complete / cancel / reopen / archive cases | — | ✓ | ✓ |
+| Send manual notifications | — | ✓ | ✓ |
+| Access Settings (organisation, plan, team) | — | — | ✓ |
+| Access Billing, Invoices, Payment Methods | — | — | ✓ |
+| Add / disable / delete team members | — | — | ✓ |
+| Delete the organisation | — | — | ✓ |
 
 <Info>
-  Only **Admin** users can add, disable, or delete team members. Regular users can be assigned to cases but cannot manage team membership.
+  Only **Admin** can access Settings, Billing, and the Team page. If an Editor or Read User opens those pages directly, they'll see an Access Denied screen — by design.
 </Info>
+
+## Changing someone's role
+
+Open **Settings → Team**, click the user, and pick the new role. The change takes effect on their next page load — they don't need to sign out.
+
+## Disabling vs deleting
+
+- **Disable** — Pauses access without removing the user. Their case history stays intact. Re-enable them later if they return.
+- **Delete** — Removes the user permanently. Their assigned cases stay in the organisation but become unassigned.
+
+<Warning>
+  The original Admin who created the organisation can't be deleted from the Team page. To transfer ownership, contact support.
+</Warning>

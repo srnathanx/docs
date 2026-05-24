@@ -1,28 +1,70 @@
 ---
-title: "Billing"
-description: "Manage your plan, invoices, and payment methods"
+title: "Billing & Renewals"
+description: "Manage your plan, invoices, payment methods, and renewals."
 icon: "chart-area"
 ---
 
+<Info>
+  **Admin-only.** Billing, Invoices, Renewal, and Payment Methods are visible only to users with the **Admin** role.
+</Info>
+
 ## Billing
 
-The **Billing** page shows your current plan and lets you manage your subscription. To access it, click **Billing** in the side menu.
+The **Billing** page shows your current plan and lets you manage your subscription. Click **Billing** in the side menu to open it.
 
 <CardGroup cols={3}>
   <Card title="Upgrade your plan" icon="arrow-up-right-dots">
-    Move to a higher tier for more users, storage, and domain limits.
+    Move to a higher tier for more users, storage, and domain limits. Upgrades take effect immediately.
   </Card>
-  <Card title="Buy additional domains" icon="globe">
-    Add more domains on the **Pro** plan as your practice grows.
+  <Card title="Downgrade" icon="arrow-down">
+    Switch to a lower tier. The change applies at the end of the current billing cycle so you don't lose access mid-period.
   </Card>
-  <Card title="Update payment methods" icon="credit-card">
-    Change your card, billing address, or review past charges.
+  <Card title="Switch billing cycle" icon="calendar-days">
+    Move between monthly and annual billing.
   </Card>
 </CardGroup>
 
 ## Invoices
 
-The **Invoices** page lists all invoices generated for your organization, including those for monthly subscriptions, annual plans, and any add-ons. You can download individual invoices as PDFs for your records or accounting needs.
+The **Invoices** page lists every invoice generated for your organisation — monthly subscriptions, annual plans, add-on domains, and one-off charges. Download any invoice as a PDF for your records or accounting team.
+
+## Payment methods
+
+The **Payment Methods** page shows the card on file and lets you replace it. Open it from **Billing → Payment Methods**.
+
+You'll be asked to update your payment method when:
+
+- **A charge fails** — Xenora couldn't collect your scheduled payment (expired card, insufficient funds, bank decline).
+- **Your card is expiring soon** — A banner appears before the card stops working.
+- **You choose to replace it** — Any time, no reason needed.
+
+<Note>
+  Replacing the card keeps your existing subscription intact — same plan, same renewal date, no new trial. Only the card on file changes.
+</Note>
+
+## Renewal
+
+If a payment fails, Xenora gives you a grace period to fix it before your team loses access. The exact timing depends on your plan status:
+
+| Status | What's happening | What to do |
+|---|---|---|
+| **Payment past due** | A scheduled charge didn't go through. Your team still has full access. | Open **Billing → Renew** and complete the payment. Update the card if it's the cause. |
+| **Suspended** | Payment didn't recover in time. Your team's access is paused, but your data is intact. | Renew to restore access — nothing is lost. |
+| **Archival pending** | Suspension continued past the data-archival threshold. Your data will be archived shortly. | Renew now to keep your account live. Once data is archived, recovery requires support. |
+
+The **Renew** page walks you through any pending payment. It tells you the exact amount due, the consequences if you don't act by a given date, and the next steps after the payment succeeds.
+
+## Add-on domains
+
+On the **Pro** plan, you start with one domain. Need another? Buy an add-on from the Billing page — it's pro-rated to the rest of your current billing period and renews with your subscription.
+
+The **Business** plan includes access to all domains at no extra cost.
+
+## Cancellation
+
+You can cancel your subscription from the Billing page at any time. You'll keep full access until the end of the period you've already paid for; mid-period cancellations aren't pro-rated.
+
+After cancellation, you can also request **deletion of your organisation** — see [Delete organization](/settings/general-settings#delete-organization) for the cool-down and permanent-deletion process.
 
 ## Support
 

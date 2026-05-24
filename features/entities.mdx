@@ -1,0 +1,95 @@
+---
+title: "Entities & Clients"
+description: "Clean, reusable records for every client you work with."
+icon: "building"
+---
+
+The **Entities & Clients** page is where Xenora stores the people and organisations you collect documents from. Add a client or entity once, and every future case for them is a couple of clicks — no re-typing names, contact details, or registration numbers.
+
+## Two record types
+
+Xenora keeps two distinct record types so your team uses the right one without thinking about it.
+
+<CardGroup cols={2}>
+  <Card title="Client" icon="user">
+    An individual person. Stored with first name, last name, email, mobile, and optional notes.
+
+    Use for cases with a specific human — employee onboarding, individual ITR filer, loan applicant.
+  </Card>
+  <Card title="Entity" icon="building">
+    An organisation. Stored with registered name, entity type (Pvt Ltd, LLP, Partnership, Proprietorship, Trust, HUF), PAN, GSTIN, CIN, address, and associated directors or partners.
+
+    Use for cases with a company — statutory audit, GST filing, company incorporation.
+  </Card>
+</CardGroup>
+
+## Why this matters
+
+<CardGroup cols={3}>
+  <Card title="No duplicate work" icon="copy">
+    Add a client or entity once. Every case for them pre-fills the contact and identifier fields automatically.
+  </Card>
+  <Card title="Audit-ready records" icon="shield-halved">
+    Each entity carries its PAN, GSTIN, CIN, and director/partner list in one place. Audit pulls are a search away.
+  </Card>
+  <Card title="Multi-case view" icon="list">
+    Open a client or entity to see every case ever run for them — status, deadline, assignee, all at a glance.
+  </Card>
+</CardGroup>
+
+## Adding a client
+
+<Steps>
+  <Step title="Open Entities & Clients">
+    Click **Entities & Clients** in the side menu, then switch to the **Clients** tab.
+  </Step>
+  <Step title="Click Add Client">
+    A short form opens — name, email, mobile, notes.
+  </Step>
+  <Step title="Save">
+    The client is added to your list and immediately available when creating a new case.
+  </Step>
+</Steps>
+
+## Adding an entity
+
+<Steps>
+  <Step title="Open Entities & Clients">
+    Click **Entities & Clients** in the side menu, then click **New Entity**.
+  </Step>
+  <Step title="Pick the entity type">
+    Choose Pvt Ltd, LLP, Partnership, Proprietorship, Trust, HUF, or another type. The form adapts — for example, CIN appears only for entity types that have one.
+  </Step>
+  <Step title="Fill in identifiers and contact">
+    Add the registered name, PAN, GSTIN/CIN if applicable, registered address, date of incorporation, and contact email/mobile.
+  </Step>
+  <Step title="Add associates">
+    Add directors, partners, or trustees as **associates**. Each associate links to a Client record — so the same person can be a director of one entity and a partner of another, without duplicate data.
+  </Step>
+  <Step title="Save">
+    The entity is added to your list and ready to be linked to cases.
+  </Step>
+</Steps>
+
+## Using entities and clients in cases
+
+When you create a case, pick an existing entity or client from the relevant dropdown on the case form. The case inherits the contact details and identifiers automatically. If the entity or client doesn't exist yet, you can also add a new one right from the case form — it's saved to your list at the same time.
+
+<Tip>
+  Changes to a client or entity record affect **future** cases. Past cases keep the data they had at the time the case was created — so a historical audit trail isn't disturbed by today's edits.
+</Tip>
+
+## Search
+
+The page has separate searches for each tab:
+
+- **Clients tab** — search by name, email, or mobile.
+- **Entities tab** — search by name, PAN, or GSTIN.
+
+## Edit and delete
+
+Open any record to update it. Records that aren't tied to any case can be deleted; records with cases attached can't — close or cancel the related cases first.
+
+<Info>
+  Edit and delete are available to **Editor** and **Admin** roles. Read users can view records but can't make changes.
+</Info>

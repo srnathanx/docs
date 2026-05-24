@@ -6,17 +6,28 @@
 
 ## Table of contents
 
+**Get started**
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Domains Supported](#domains-supported)
-4. [Getting Started](#getting-started)
-5. [Dashboard](#dashboard)
-6. [Your workspace](#your-workspace)
-7. [Custom Workflow](#custom-workflow)
-8. [General Settings](#general-settings)
-9. [Teams](#teams)
-10. [Billing](#billing)
-11. [FAQ](#faq)
+4. [Concepts & Glossary](#concepts--glossary)
+5. [Getting Started](#getting-started)
+
+**Work in Xenora**
+6. [Dashboard](#dashboard)
+7. [Entities & Clients](#entities--clients)
+8. [Your workspace](#your-workspace)
+9. [Pending Review](#pending-review)
+10. [Custom Workflow](#custom-workflow)
+
+**Admin & settings**
+11. [General Settings](#general-settings)
+12. [Teams & Roles](#teams--roles)
+13. [Billing & Renewals](#billing--renewals)
+
+**Reference**
+14. [Troubleshooting](#troubleshooting)
+15. [FAQ](#faq)
 
 ---
 
@@ -39,8 +50,8 @@ Collect documents from clients through the WhatsApp Business API (primary) or a 
 **AI-powered document validation**
 Every uploaded document is validated by Xenora's RAG-based AI layer — checking for completeness, correct document type, expiry dates, signature presence, and field-level accuracy before it reaches the reviewer's queue.
 
-**Configurable approval workflows** *(Coming soon)*
-Define multi-stage approval flows with role-based reviewers, conditional routing, and audit trails. Reviewers approve, reject, or request resubmission directly from the dashboard.
+**Document review workflow**
+Every upload moves through a clear lifecycle — Awaiting Upload → Uploaded → Approved / Rejected / Re-upload Requested. Reviewers approve, reject, or request a re-upload directly from the case page, with the reason captured and sent back to the client automatically.
 
 **WhatsApp-first client experience**
 Clients submit documents, receive reminders, and check status entirely within WhatsApp — no app installs, no logins, no friction. Desktop web access is available for clients who prefer it.
@@ -120,6 +131,24 @@ Xenora supports a growing set of practice domains, each with built-in flows tail
 
 ---
 
+## Concepts & Glossary
+
+*A quick map of the words Xenora uses — and what each one actually means.*
+
+| Term | What it means |
+|---|---|
+| **Domain** | A practice area your firm works in — Tax, Audit, HR, Legal, Loans, etc. Turning a domain on activates the flows built for it. |
+| **Flow** | A pre-built template that defines the document checklist for a specific use case (e.g. "Statutory Audit", "Employee Onboarding"). You run a flow by creating a case from it. |
+| **Custom Workflow** | A flow you build yourself for a requirement that isn't in the built-in set. Once saved, it's a reusable template your whole team can use — same as any standard flow. |
+| **Case** | One instance of a flow, for one customer. A case is the unit of work — created, tracked, reviewed, closed. |
+| **Party** | A participant in a case. Most cases have one party (the client). Multi-party cases — common in legal and loans — have several (e.g. borrower + co-applicant + guarantor), each with their own document checklist. |
+| **Entity / Client** | The organisation a case is attached to (Private Limited, LLP, Partnership, Proprietorship, Trust, HUF) or an individual client. Entities are stored once and re-used across cases — clean records, no re-typing. |
+| **Document** | A single file the client is expected to upload (e.g. PAN, GST certificate, bank statement). Documents have their own lifecycle: Awaiting Upload → Uploaded → Approved / Rejected. |
+| **Assignee** | The team member responsible for moving a case forward. Cases can be reassigned at any time. |
+| **Timeline** | The chronological audit trail of everything that happened on a case — created, document uploaded, validated, approved, reassigned, completed. |
+
+---
+
 ## Getting Started
 
 *Sign in, pick a plan, and start collecting documents.*
@@ -166,16 +195,21 @@ Choose a plan to continue. Pricing varies by country — see the [Pricing Page](
 
 #### Quick plan comparison
 
-| Feature | Free | Starter | Pro *(Most popular)* | Business |
-|---|---|---|---|---|
-| **Users** | 1 | 1 | 5 | 20 |
-| **Storage** | 5 GB | 10 GB | 100 GB | 500 GB |
-| **Domains** | 1 | 1 | 1 (+ add-ons available) | All domains included |
-| **WhatsApp notifications** | ✓ | ✓ | ✓ | ✓ |
-| **Desktop upload fallback** | ✓ | ✓ | ✓ | ✓ |
-| **AI validation** | ✓ | ✓ | ✓ | ✓ |
-| **Support** | Standard | Standard | Priority | Priority |
-| **Dedicated onboarding** | — | — | — | ✓ |
+| Feature | Free | Starter | Pro *(Most popular)* | Business | Pro Max |
+|---|---|---|---|---|---|
+| **Users** | 1 | 1 | 5 | 20 | Custom |
+| **Storage** | 5 GB | 10 GB | 100 GB | 500 GB | Custom |
+| **Domains** | 1 | 1 | 1 (+ add-ons) | All domains | All domains |
+| **Per-file upload limit** | Plan-defined | Plan-defined | Plan-defined | Plan-defined | Highest |
+| **WhatsApp notifications** | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **Desktop upload fallback** | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **AI validation** | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **Custom workflows** | — | — | — | ✓ | ✓ |
+| **Team roles** | — | — | ✓ | ✓ | ✓ |
+| **Support** | Standard | Standard | Priority | Priority | Priority + dedicated CSM |
+| **Dedicated onboarding** | — | — | — | ✓ | ✓ |
+
+> **Tip:** The per-file upload limit is set by your plan. You can always see your current limit in **Settings → Plan**, listed as *Max upload size*. The limit applies per file — total storage is governed separately by your plan's storage quota.
 
 ---
 
@@ -200,6 +234,39 @@ Select your practice domain to see all flows available for it.
 3. **Browse flows** — The page loads the predefined flows for that domain.
 
 ![Flows page with domain dropdown](/doc-images/5.png)
+
+---
+
+## Entities & Clients
+
+*Clean, reusable records for every client you work with.*
+
+The **Entities & Clients** page is where Xenora stores the people and organisations you collect documents from. Once a client or entity is added, every future case for them is just a couple of clicks — no re-typing names, contact details, or registration numbers.
+
+### Two record types
+
+Xenora keeps two distinct record types so your team uses the right one without thinking about it:
+
+- **Client** — an individual person. Stored with first name, last name, email, mobile number, and optional internal notes. Used when the case is with a specific human (employee onboarding, individual ITR filer, applicant).
+- **Entity** — an organisation. Stored with the registered name, entity type (Pvt Ltd, LLP, Partnership, Proprietorship, Trust, HUF), PAN, GSTIN, CIN, address, and associated directors/partners. Used when the case is with a company (statutory audit, GST filing, company incorporation).
+
+### Why this matters
+
+- **No duplicate work** — Add a client or entity once. Every case for them pre-fills the contact and identifier fields automatically.
+- **Audit-ready records** — Each entity carries its PAN, GSTIN, CIN, and director/partner list in one place, so audit pulls are a search away.
+- **Multi-case view** — Open a client or entity and you see every case ever run for them, with status, deadline, and assignee at a glance.
+
+### Working with records
+
+- **Add a client** — Click **Add Client**. Fill in name, email, mobile, and optional notes. Save.
+- **Add an entity** — Click **Add Entity**. Pick the entity type, fill in registered name, PAN, GSTIN/CIN if applicable, then add directors/partners.
+- **Search** — Search by client name, email, or mobile in the Clients tab; search by entity name, PAN, or GSTIN in the Entities tab.
+- **Edit** — Open any record to update its details. Changes don't affect historical cases — past cases keep the data they had at the time.
+- **Delete** — Records that aren't tied to any case can be deleted. Records with cases attached cannot — close or cancel the related cases first.
+
+### Using entities in cases
+
+When you create a case (see [Creating a case](#creating-a-case)), pick an existing entity from the **Entity / Company** dropdown. The case inherits the entity's contact details and identifiers. If the entity doesn't exist yet, click **Add new entity** right from the case form — it's saved to your entities list at the same time.
 
 ---
 
@@ -238,9 +305,9 @@ A case moves through these states:
 
 Xenora provides multiple views to help you find and manage cases at different stages of work:
 
-- **My Cases** — All cases currently assigned to you.
-- **Pending Cases** — Cases awaiting action from you or your team (Open and Under Review states).
-- **All Cases** — Every case in your organization, including completed and archived cases.
+- **All Cases** — Every case in your organisation, including completed and archived cases.
+- **Pending Review** — Cases awaiting action from you or your team (see [Pending Review](#pending-review)).
+- **My Cases** — Cases currently assigned to you (filtered from All Cases by the assignee chip).
 - **Filters and search** — Search by customer name, email, or mobile number to quickly locate a specific case.
 
 ### Creating a case
@@ -290,6 +357,22 @@ Once you create a case, your customer receives an email and a WhatsApp notificat
 | Case completed | ✓ | ✓ |
 | Case cancelled | ✓ | ✓ |
 
+#### Reminder cadence
+
+Reminders are scheduled when you create the case, based on the **Reminder after** value you pick on the case form. You can choose **1, 2, 3, 5, or 7 days** before the deadline. A reminder fires on both WhatsApp and email — same channels as the original request. If the case is still open at the deadline, follow-up nudges continue until the case is marked complete or cancelled.
+
+You can also send a reminder manually any time from the case page — **Send Notification** at the top of any open case.
+
+#### One active case per mobile number (WhatsApp)
+
+To avoid confusing clients with overlapping conversations, Xenora allows only **one active WhatsApp case per mobile number** at a time. If a number already has an Open, In Review, or Reopened case:
+
+- New cases for that number are switched to **email-only** notifications automatically.
+- The mobile field on the case page shows an amber warning icon indicating WhatsApp delivery is paused for this number.
+- Once the existing case is **Completed** or **Cancelled**, WhatsApp resumes automatically for any new case on that number.
+
+Email notifications are never gated by this rule — they always go out.
+
 ### Working with documents
 
 When your customer uploads a document, you'll receive a notification. You can also check pending cases anytime from **My Cases**, **Pending Cases**, or **All Cases** (see [Case views](#case-views)).
@@ -301,7 +384,8 @@ Click **View** on any case to open it and see the documents the customer has sub
 - PDF
 - JPG, PNG, HEIC
 - Excel, Word
-- Maximum file size: 50 MB
+
+The maximum size for any single uploaded file depends on your plan — see your current limit in **Settings → Plan** under *Max upload size*. Total storage across all uploads is governed by your plan's storage quota (see the [plan comparison](#quick-plan-comparison)).
 
 #### AI validation
 
@@ -362,6 +446,44 @@ Completed or cancelled cases can be archived using the **Archive** button. Archi
 
 **Download All**
 Click **Download All** at the top of the case to download every document the customer has uploaded as a single bundle.
+
+### Internal notes
+
+Every case has an **Internal notes** field that's visible only to your team — clients never see it. Use it to capture context that doesn't belong in a document: a phone call summary, a flag for the partner, a deadline negotiated separately. Notes appear as a dedicated card on the case page when present.
+
+### Case timeline (audit trail)
+
+Each case carries a chronological **Timeline** on the right side of the case page. Every meaningful event is recorded with a timestamp and the actor (team member or client) who triggered it:
+
+- Case created, assigned, reassigned
+- Document requested, uploaded, validated, approved, rejected, re-upload requested, skipped
+- Notification sent (manual or automatic reminder)
+- Notes updated, fields updated, custom document added or removed
+- Case completed, cancelled, reopened, archived
+
+The timeline is the single source of truth for "what happened on this case." It's preserved for the case's full retention period, available for export with the case bundle, and used for internal reviews, client disputes, and audit responses.
+
+---
+
+## Pending Review
+
+*Your team's daily queue — cases that need a human decision now.*
+
+The **Pending Review** page shows every case in your organisation that's currently in an **Open**, **In Review**, or **Reopened** state — in other words, every case where the client has acted (or is expected to act) and your team needs to follow up.
+
+This is the page most reviewers live in day to day. It's faster than scrolling through All Cases because completed, cancelled, and archived work is hidden by default.
+
+### What you can do here
+
+- **Search** — Filter by client name, email, or mobile to jump straight to a specific case.
+- **Open** — Click any row to open the full case view (documents, timeline, actions).
+- **Sort** — Most recently updated cases bubble to the top so the queue stays current.
+- **Paginate** — 10 cases per page by default; use the controls at the bottom to move through the queue.
+
+### When to use it vs All Cases
+
+- Use **Pending Review** when you start your shift, or any time you want to know "what needs me right now."
+- Use **All Cases** when you're looking for a specific historical case, building a report, or auditing past work — it includes completed, cancelled, and archived cases too.
 
 ---
 
@@ -444,45 +566,109 @@ After you cancel your billing, you can request deletion of your organization. Th
 
 ---
 
-## Teams
+## Teams & Roles
 
 *Invite team members, assign roles, and manage user access.*
 
-> **Note:** The **Teams** feature is available on the **Pro** and **Business** plans.
+> **Note:** The **Teams** feature is available on the **Pro**, **Business**, and **Pro Max** plans.
 
-Invite team members to your organization and collaborate on cases together.
+Invite team members to your organisation and collaborate on cases together.
 
 - **Create & assign cases** — Assign new cases to specific team members so ownership is clear from day one.
 - **Reassign cases** — Move cases between team members as workloads shift.
 - **View team workload** — See which cases each member is currently handling and rebalance as needed.
 
-This makes it easy to coordinate document collection across your firm and avoid duplicated effort.
-
 ### Adding team members
 
-To add a team member, go to **Settings → Teams → Add User**.
+To add a team member, go to **Settings → Team → Add User**. Enter their email address and pick a role. They'll receive an invitation to join your organisation; once they accept, they can sign in with Google, Microsoft, or email OTP — the same options available to you.
 
-### Roles and permissions
+### Roles
 
-> **Info:** Only **Admin** users can add, disable, or delete team members. Regular users can be assigned to cases but cannot manage team membership.
+Xenora has three roles. Pick the lowest one that lets the person do their job.
+
+- **Admin** — Full control. Manages the organisation, billing, team, and settings. Every organisation must have at least one Admin.
+- **Editor** — Day-to-day operator. Creates and works cases, manages clients and entities, but can't change billing, settings, or the team.
+- **Read** — View-only. Can see cases, clients, and dashboards, but can't create, edit, or approve.
+
+### Roles & permissions matrix
+
+| Capability | Read | Editor | Admin |
+|---|---|---|---|
+| View dashboard | ✓ | ✓ | ✓ |
+| View cases | ✓ | ✓ | ✓ |
+| View clients & entities | ✓ | ✓ | ✓ |
+| Create / edit cases | — | ✓ | ✓ |
+| Approve / reject documents | — | ✓ | ✓ |
+| Create / edit clients & entities | — | ✓ | ✓ |
+| Build custom workflows | — | ✓ | ✓ |
+| Be assigned to a case | ✓ | ✓ | ✓ |
+| Access Settings (organisation, plan, team) | — | — | ✓ |
+| Access Billing & Invoices | — | — | ✓ |
+| Add / disable / delete team members | — | — | ✓ |
+| Delete the organisation | — | — | ✓ |
+
+> **Heads up:** Only **Admin** can access Billing, Invoices, and the Settings area. If an Editor or Read user tries to open those pages directly, they'll see an Access Denied screen — by design, not a bug.
+
+### Changing someone's role
+
+Open **Settings → Team**, click the user, and pick the new role. The change takes effect on their next page load — they don't need to sign out and back in.
 
 ---
 
-## Billing
+## Billing & Renewals
 
-*Manage your plan, invoices, and payment methods.*
+*Manage your plan, invoices, payment methods, and renewals.*
+
+> **Admin-only:** Billing, Invoices, Renewal, and Payment Methods are visible only to users with the **Admin** role.
 
 ### Billing
 
 The **Billing** page shows your current plan and lets you manage your subscription. To access it, click **Billing** in the side menu.
 
 - **Upgrade your plan** — Move to a higher tier for more users, storage, and domain limits.
+- **Downgrade** — Switch to a lower tier. The change takes effect at the end of the current billing cycle so you don't lose access mid-period.
 - **Buy additional domains** — Add more domains on the **Pro** plan as your practice grows.
-- **Update payment methods** — Change your card, billing address, or review past charges.
+- **Switch billing cycle** — Move between monthly and annual billing.
 
 ### Invoices
 
-The **Invoices** page lists all invoices generated for your organization, including those for monthly subscriptions, annual plans, and any add-ons. You can download individual invoices as PDFs for your records or accounting needs.
+The **Invoices** page lists every invoice generated for your organisation — monthly subscriptions, annual plans, add-on domains, and one-off charges. You can download any invoice as a PDF for your records or accounting team.
+
+### Payment methods
+
+The **Payment Methods** page shows the card on file for your subscription and lets you replace it. To open it, go to **Billing → Payment Methods**.
+
+You'll be asked to update your payment method when:
+
+- **A charge fails** — Xenora couldn't collect your scheduled payment (expired card, insufficient funds, bank decline).
+- **Your card is expiring soon** — We surface a banner before the card stops working.
+- **You manually choose to replace it** — Any time, no reason needed.
+
+Replacing the card keeps your existing subscription intact — same plan, same renewal date, no new trial. Only the card on file changes.
+
+### Renewal
+
+If a payment fails, Xenora gives you a grace period to fix it before your team loses access. The exact timing depends on your plan status:
+
+| Status | What's happening | What you should do |
+|---|---|---|
+| **Payment past due** | A scheduled charge didn't go through. Your team still has full access. | Open **Billing → Renew** and complete the payment. Update the card if it's the cause. |
+| **Suspended (post-grace)** | Payment didn't recover in time. Your team's access is paused, but your data is intact. | Renew to restore access immediately — nothing is lost. |
+| **Archival pending** | Suspension has continued past the data-archival threshold. Your data will be archived shortly. | Renew now to keep your account live. Once data is archived, recovery requires support. |
+
+The **Renew** page (**Billing → Renew**) walks you through any pending payment. It tells you the exact amount due, the consequences if you don't act by a given date, and the next steps after payment succeeds.
+
+### Add-on domains
+
+On the **Pro** plan, you start with one domain. Need another? Buy an add-on domain from the Billing page — it's pro-rated to the rest of your current billing period and renews with your subscription.
+
+**Business** and **Pro Max** plans include access to all domains at no extra cost.
+
+### Cancellation
+
+You can cancel your subscription from the Billing page at any time. You'll keep full access until the end of the period you've already paid for; we don't pro-rate refunds on mid-period cancellations.
+
+After cancellation, you can also request **deletion of your organisation** — see [Delete organization](#delete-organization) for the cool-down and permanent-deletion process.
 
 ### Billing support
 
@@ -490,6 +676,46 @@ If you have any issues with billing or need help with your account, reach out:
 
 - **Billing queries:** [billing@xenora.ai](mailto:billing@xenora.ai)
 - **Product support:** [support@xenora.ai](mailto:support@xenora.ai)
+
+---
+
+## Troubleshooting
+
+*Quick fixes for the things users hit most often.*
+
+### Sign-in & access
+
+| Symptom | What's happening | What to do |
+|---|---|---|
+| "Session expired" after a fresh login | Your session genuinely expired, or a request to a backend service failed authentication. | Sign in again. If it repeats, contact support — your account may need a reset. |
+| "Access Denied" on Settings / Billing / Team | Your role doesn't have access. Only **Admin** can open these. | Ask an Admin in your organisation to either grant you Admin or perform the action for you. |
+| Stuck on "Loading..." after sign-in | The role lookup is still in progress, or there's a network blip. | Wait 5–10 seconds and refresh. If it persists, sign out and back in. |
+
+### Documents & uploads
+
+| Symptom | What's happening | What to do |
+|---|---|---|
+| "File too large" when client uploads | The file exceeds your plan's per-file limit. | Ask the client to compress, split, or rescan at lower resolution. Or upgrade your plan to raise the limit. |
+| "File type not supported" | The file isn't in the supported set (PDF, JPG, PNG, HEIC, Excel, Word). | Convert to one of the supported formats and try again. |
+| AI marks a clearly correct document as **Invalid** | AI flagged a type mismatch, missing field, or quality issue. | Open the document, review the AI reason in the case page, and either accept (Approve manually) or request a clean re-upload. |
+| Document marked **Unidentifiable** | AI couldn't read the file — usually blurry, in a regional language, or a photo of a screen. | Open it and review manually. Approve if it's actually correct; ask the client for a clearer scan if not. |
+
+### Notifications
+
+| Symptom | What's happening | What to do |
+|---|---|---|
+| Client says they got the email but no WhatsApp | This number already has another active case — Xenora pauses WhatsApp to avoid two conversations. | Complete or cancel the other open case for that number, then re-send the notification. See [One active case per mobile number](#one-active-case-per-mobile-number-whatsapp). |
+| Reminder didn't go out on time | Reminders fire based on the **Reminder after** value set on the case. If the deadline isn't set, reminders won't fire. | Open the case and confirm the deadline is set. Use **Send Notification** to send one manually. |
+
+### Billing
+
+| Symptom | What's happening | What to do |
+|---|---|---|
+| "Payment past due" banner | Your card was declined. Your team still has full access — it's a warning. | Open **Billing → Renew** and complete the payment. Replace the card if it's the cause. |
+| Suspension after grace period | The grace window expired without payment. Access is paused, data is intact. | Renew immediately — access restores once the payment succeeds. |
+| Need an invoice for accounting | All invoices are available as PDF downloads. | Go to **Billing → Invoices** and download the one you need. |
+
+If you hit something that isn't here, email **[support@xenora.ai](mailto:support@xenora.ai)** — include your organisation name, the case ID (if relevant), and a screenshot.
 
 ---
 
