@@ -1,0 +1,79 @@
+---
+title: "Create a Knowledge Base"
+description: "Turn your own documents into a source the AI can answer questions about."
+icon: "books"
+---
+
+A **Knowledge Base** is a private library of your own documents that Xenora's AI can read and answer questions about. Upload your policies, manuals, agreements, or reference material once — then ask questions about them in plain language from the [Chat](/ai/chat) page, and get answers backed by the exact source.
+
+You build a knowledge base by creating a **Document Source**: you give it a name, add your files, and Xenora does the rest.
+
+## Where to find it
+
+Open **Document Sources** from the **AI** section of the left sidebar. This opens the **Knowledge Base** page, where all your sources live.
+
+<Frame caption="The Knowledge Base page, showing your document sources">
+  ![Knowledge Base page](/doc-images/17.png)
+</Frame>
+
+The page has two tabs:
+
+<CardGroup cols={2}>
+  <Card title="Document Source" icon="book">
+    Knowledge bases you build from your own uploaded files — the focus of this page.
+  </Card>
+  <Card title="Cases Source" icon="folder-open">
+    Knowledge bases created automatically from your **trained cases**. See [Train a Case](/ai/train-case).
+  </Card>
+</CardGroup>
+
+Each row in the list shows the source name, the number of documents in it, when it was created and last updated, and its current **Status**. A source is ready to chat with once its status shows **Ready**.
+
+## Create a new Document Source
+
+From the Knowledge Base page, click **Create New Document Source** in the top-right corner.
+
+<Frame caption="Creating a new Document Source">
+  ![Create Document Source form](/doc-images/18.png)
+</Frame>
+
+<Steps>
+  <Step title="Name your knowledge base">
+    Enter a **Knowledge Base Name** — a short, descriptive title like "Support Knowledge Base" or "HR Policies". This is how you'll recognise it later in the chat selector.
+  </Step>
+  <Step title="Add a description">
+    Write a one-line **Description** so your teammates understand what this knowledge base is for.
+  </Step>
+  <Step title="Add your files">
+    Under **Data Sources**, the **Files & Documents** option is selected by default. Drag and drop your files into the upload area, or click to browse and pick them from your computer.
+
+    Supported file types: **PDF, DOC, DOCX, TXT, MD, XLS, XLSX, and JSONL**. You can add several files to the same knowledge base — each one appears in the list below the upload area with its size.
+  </Step>
+  <Step title="Create the source">
+    Click **Create Document Source** at the bottom. Xenora reads and indexes your files so the AI can search them. This takes a few moments — the status starts as **Processing** and changes to **Ready** when it's done.
+  </Step>
+</Steps>
+
+<Tip>
+  Group related material into one knowledge base rather than mixing unrelated topics. A focused source ("HR Policies") gives sharper answers than a catch-all one, and it's easier to pick the right source when you start a chat.
+</Tip>
+
+## Managing a Document Source
+
+Each source in the list has a set of actions on the right:
+
+<AccordionGroup>
+  <Accordion title="Re-train" icon="database">
+    Refresh the knowledge base after you've added, removed, or updated files so the AI's answers reflect the latest content.
+  </Accordion>
+  <Accordion title="Edit" icon="pen">
+    Change the name, description, or the files in the knowledge base.
+  </Accordion>
+  <Accordion title="Delete" icon="trash">
+    Permanently remove the knowledge base and everything indexed from it. The AI can no longer answer questions about it. This can't be undone.
+  </Accordion>
+</AccordionGroup>
+
+## What's next
+
+Once your source shows **Ready**, head to the [Chat](/ai/chat) page to start asking questions about it.

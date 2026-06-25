@@ -28,9 +28,18 @@
             "pages": [
               "features/kb",
               "features/pending-review",
+              "features/reminders",
               "features/entities",
               "features/custom",
               "features/share"
+            ]
+          },
+          {
+            "group": "AI Knowledge & Chat",
+            "pages": [
+              "ai/document-sources",
+              "ai/train-case",
+              "ai/chat"
             ]
           },
           {

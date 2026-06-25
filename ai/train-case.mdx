@@ -1,0 +1,54 @@
+---
+title: "Train a Case"
+description: "Turn a case's documents into a knowledge base you can ask questions about."
+icon: "graduation-cap"
+---
+
+Every case you run collects a set of real documents — bank statements, agreements, policies, ID proofs, and more. **Training a case** turns those documents into a private knowledge base, so you can ask questions about that case's files in plain language instead of opening and reading each one.
+
+For example, after training a loan case you could ask *"What's the applicant's monthly income?"* or *"Which address is on the Aadhaar?"* and get an answer drawn straight from the uploaded documents.
+
+## Train a case
+
+Open any case from **Pending Review**, **All Cases**, or a flow's case list. In the action bar at the top of the case, click **Train**.
+
+<Steps>
+  <Step title="Click Train">
+    The **Train** button sits in the top-right action bar of the case. (If the case has been trained before, the button reads **Retrain**.)
+  </Step>
+  <Step title="Confirm">
+    A dialog explains that Xenora will prepare the case's documents for AI chat, and that this may take a few minutes. Click **Yes, train** to start.
+  </Step>
+  <Step title="Wait for training to finish">
+    The button shows **Training…** while it works. You don't have to wait on the page — you can carry on with other work and come back later. Training usually finishes in a few minutes; large cases with many documents take a little longer.
+  </Step>
+</Steps>
+
+<Note>
+  Only documents that have actually been uploaded to the case are trained. If a client uploads more files later, use **Retrain** to bring the knowledge base up to date.
+</Note>
+
+## Asking questions about a trained case
+
+Once training finishes, an **Ask AI** button appears on the case. Click it to jump straight into a chat scoped to that case's documents.
+
+You can also reach every trained case from the **Document Sources** page in the **AI** section of the sidebar — open the **Cases Source** tab to see them listed alongside their document count. From the [Chat](/ai/chat) page, trained cases appear under the **Cases** tab of the knowledge-base selector.
+
+## Keeping a trained case current
+
+A trained case is a snapshot of the documents at the moment you trained it. When the documents change — a new upload, a re-uploaded correction, an added requirement — click **Retrain** on the case to refresh the knowledge base so answers reflect the latest files.
+
+<Tip>
+  Train a case once all its key documents are in. You'll get the most useful answers from a complete case, and you avoid retraining repeatedly as files trickle in.
+</Tip>
+
+## Train a Case vs. a Document Source
+
+Both give you a knowledge base to chat with — the difference is where the documents come from:
+
+| | Train a Case | [Document Source](/ai/document-sources) |
+|---|---|---|
+| Documents come from | A case your client uploaded to | Files you upload yourself |
+| Best for | Asking about one client's submission | A shared library (policies, manuals, references) |
+| Where it lives | **Cases Source** tab | **Document Source** tab |
+| How to start | **Train** button on the case | **Create New Document Source** |
